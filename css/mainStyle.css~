@@ -1,18 +1,21 @@
-form { 
+form{ 
         font-family: arial;
         background-color: gray;
 }
-
-#createAccound{
+#logInDiv{
+        
+        right:0px;
+}
+#createAccountDiv{
         
         float:right;
-        display:block;
         width: 400px;
-	height: 500px;
+	height: 1000px;
 
 }
 
-#createAccound input {
+#createAccount input{
+
         display:inline;
 }
 
