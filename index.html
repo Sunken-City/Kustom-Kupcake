@@ -13,12 +13,13 @@
         	<input type="submit" value="Log In" id="logInButton" />
 		</form>	
 		<form id="createAccount" action="#">
-			<h1>Create a Custom Cupcake Account</h1>
-				Join Mailing List: <input type="text" placeholder="Join Our Mailing List:" id="joinMailing" required/>
+			<h1 id="createCCAcount">Create a Custom Cupcake Account</h1>
+				Join Mailing List: <input type="radio" name="join" value="Yes" id="yesJoin" class="joinMailing" required/>Yes
+				<input type="radio" name="join" value="No" id="noJoin" class="joinMailing" required/>No
 				First Name: <input type="text" placeholder="First Name" id="firstName" required/>
 				Last Name: <input type="text" placeholder="Last Name" id="lastName" required/>
 				Email: <input type="email" placeholder="Email" id="email" required auto-complete:"off"/>
-				Password: <input type="password" placeholder="Password" patter=".{8,}" title="Password must be 8 characters or longer" id="newPassword" required/>
+				Password: <input type="password" placeholder="Password" pattern=".{8,}" title="Password must be 8 characters or longer" id="newPassword" required/>
 				Telephone Number:<input type="text" placeholder="Telephone" id="telephone" required/>
 				Address: <input type="text" placeholder="Address" id="address" required/>
 				City: <input type="text" placeholder="City" id="city" required/>
