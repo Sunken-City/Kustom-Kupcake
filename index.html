@@ -14,30 +14,52 @@
 		</form></div>
 		<div id="createAccountDiv"><form id="createAccount" action="#">
 			<h1 id="createCCAcount">Create a Custom Cupcake Account</h1>
-				<p>Join Mailing List: </p>
-					<p>
+			<table>
+				<tr>
+					<td>Join Mailing List: </td>
+					<td>
 						<input type="radio" name="join" value="Yes" id="yesJoin" class="joinMailing" required/>Yes
 						<input type="radio" name="join" value="No" id="noJoin" class="joinMailing" required/>No
-					</p>
-				<p>First Name: </p>
-					<input type="text" placeholder="First Name" id="firstName" required/>
-				<p>Last Name: </p>
-					<input type="text" placeholder="Last Name" id="lastName" required/>
-				<p>Email: </p>
-					<input type="email" placeholder="Email" id="email" required auto-complete:"off"/>
-				<p>Password: </p>
-					<input type="password" placeholder="Password" pattern=".{8,}" title="Password must be 8 characters or longer" id="newPassword" required/>
-				<p>Telephone Number: </p>
-					<input type="tel" placeholder="Telephone Number" title="10 digit phone number with no dashes" id="telephone" required/>
-				<p>Address: </p>
-					<input type="text" placeholder="Address" id="address" required/>
-				<p>City: </p>
-					<input type="text" placeholder="City" id="city" required/>
-				<p>State: </p>
-					<input type="text" placeholder="State" id="state" required/>
-				<p>Zip: </p>
-					<input type="text" placeholder="Zipcode" pattern="[0-9]{5,}" id="zipcode" required/>
-				<p><input type="submit" value="Sign Up" id="signUp" /></p>
+					</td>
+				</tr>
+				<tr>
+					<td>First Name: </td>
+					<td><input type="text" placeholder="First Name" id="firstName" required/></td>
+				</tr>
+				<tr>
+					<td>Last Name: </td>
+					<td><input type="text" placeholder="Last Name" id="lastName" required/></td>
+				</tr>
+				<tr>
+					<td>Email: </td>
+					<td><input type="email" placeholder="me@example.com" id="email" title="Must be a valid email using @ and .domain"required auto-complete:"off"/></td>
+				</tr>
+				<tr>
+					<td>Password: </td>
+					<td><input type="password" placeholder="Password" pattern=".{8,}" title="Password must be 8 characters or longer" id="newPassword" required/></td>
+				</tr>
+				<tr>
+					<td>Telephone Number: </td>
+					<td><input type="tel" placeholder="Phone Number" pattern="\d{3,}[\-]\d{3,}[\-]\d{4,}" title="10 digit phone number with dashes" id="telephone" required/></td>
+				</tr>
+				<tr>
+					<td>Address: </td>
+					<td><input type="text" placeholder="Address" id="address" required/></td>
+				</tr>
+				<tr>
+					<td>City: </td>
+					<td><input type="text" placeholder="City" id="city" required/></td>
+				</tr>
+				<tr>
+					<td>State: </td>
+					<td><input type="text" placeholder="State" id="state" required/></td>
+				</tr>
+				<tr>
+					<td>Zip: </td>
+					<td><input type="text" placeholder="5 Digit Zip" pattern="[0-9]{5,}" title="5 digit postal code" id="zipcode" required/></td>
+				</tr>
+			</table>
+			<td><input type="submit" value="Sign Up" id="signUp" /></td>
 		</form></div>
 	</body>
 
