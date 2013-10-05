@@ -7,12 +7,12 @@
     	<script src="mainScript.js"></script>
 	</head>	
 	<body>
-		<form id="logIn" action="#">
+		<div id="logInDiv"><form id="logIn" action="#">
 			Username: <input type="text" placeholder="Username" id="username" required/>
         	Password: <input type="text" placeholder="Password" id="password" required/>
         	<input type="submit" value="Log In" id="logInButton" />
-		</form>	
-		<form id="createAccount" action="#">
+		</form></div>
+		<div id="createAccountDiv"><form id="createAccount" action="#">
 			<h1 id="createCCAcount">Create a Custom Cupcake Account</h1>
 				Join Mailing List: <input type="radio" name="join" value="Yes" id="yesJoin" class="joinMailing" required/>Yes
 				<input type="radio" name="join" value="No" id="noJoin" class="joinMailing" required/>No
@@ -26,7 +26,7 @@
 				State: <input type="text" placeholder="State" id="state" required/>
 				Zip: <input type="text" placeholder="Zipcode" id="zipcode" required/>
 				<input type="submit" value="Sign Up" id="signUp" />
-		</form>
+		</form></div>
 	</body>
 
 </html>
