@@ -8,22 +8,23 @@
 	</head>	
 	<body>
 		<form id="logIn" action="#">
-			<input type="text" placeholder="Username" id="username" required/>
-        	<input type="text" placeholder="Password" id="password" required/>
+			Username: <input type="text" placeholder="Username" id="username" required/>
+        	Password: <input type="text" placeholder="Password" id="password" required/>
         	<input type="submit" value="Log In" id="logInButton" />
 		</form>	
 		<form id="createAccount" action="#">
 			<h1>Create a Custom Cupcake Account</h1>
-				<input type="text" placeholder="Join Our Mailing List:" id="joinMailing" required/>
-				<input type="text" placeholder="First Name" id="firstName" required> First Name </input>
-				<input type="text" placeholder="Last Name" id="lastName" required/>
-				<input type="email" placeholder="Email" id="email" required auto-complete:"off"/>
-				<input type="password" placeholder="Password" id="newPassword" required/>
-				<input type="text" placeholder="Telephone" id="telephone" required/>
-				<input type="text" placeholder="Address" id="address" required/>
-				<input type="text" placeholder="City" id="city" required/>
-				<input type="text" placeholder="State" id="state" required/>
-				<input type="text" placeholder="Zipcode" id="zipcode" required/>
+				Join Mailing List: <input type="text" placeholder="Join Our Mailing List:" id="joinMailing" required/>
+				First Name: <input type="text" placeholder="First Name" id="firstName" required/>
+				Last Name: <input type="text" placeholder="Last Name" id="lastName" required/>
+				Email: <input type="email" placeholder="Email" id="email" required auto-complete:"off"/>
+				Password: <input type="password" placeholder="Password" patter=".{8,}" title="Password must be 8 characters or longer" id="newPassword" required/>
+				Telephone Number:<input type="text" placeholder="Telephone" id="telephone" required/>
+				Address: <input type="text" placeholder="Address" id="address" required/>
+				City: <input type="text" placeholder="City" id="city" required/>
+				State: <input type="text" placeholder="State" id="state" required/>
+				Zip: <input type="text" placeholder="Zipcode" id="zipcode" required/>
+>>>>>>> 2160ad4364fe0f203b507635e990372059b15f8d
 				<input type="submit" value="Sign Up" id="signUp" />
 		</form>
 	</body>
