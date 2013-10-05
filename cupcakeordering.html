@@ -1,0 +1,67 @@
+<html>
+	<body>
+		<table id="Flavor">
+			<tbody>
+				<td> <img src="img/banana.png" alt="banana" class> Banana <td>
+				<td> <img src="img/carrot.png" alt="carrot" class> Carrot <td>
+				<td> <img src="img/chocolate.png" alt="dark chocolate" class> Dark Chocolate <td>
+				<td> <img src="img/coconut.png" alt="coconut" class> Coconut <td>
+				<td> <img src="img/cranberry.png" alt="cranberry" class> Cranberry <td>
+				<td> <img src="img/dark_chocolate.png" alt="dark chocolate" class> Dark Chocolate <td>
+				<td> <img src="img/lemon.png" alt="lemon" class> Lemon <td>
+				<td> <img src="img/orange.png" alt="orange" class> Orange <td>
+				<td> <img src="img/pineapple.png" alt="pineapple" class> Pineapple <td>
+				<td> <img src="img/redvelvet.png" alt="red velvet" class> Red Velvet <td>
+				<td> <img src="img/vanilla.png" alt="vanilla" class> Vanilla <td>
+			</tbody>
+		</table>
+
+		<table id="Filling">
+			<tbody>
+				<td>
+			</tbody>
+		</table>
+
+		<table id="Icing">
+			<tbody>
+				<td>
+			</tbody>
+		</table>
+
+
+
+		<form name="cupcakesForm" action="http://www.THISWILLCHANGE.COM/WHATEVERTHISIS.php" method="POST">
+		<div align="center"><br>
+			<input type="checkbox" name = "toppings" value="Sprinkles">Sprinkles
+			<input type="checkbox" name = "toppings" value="Bacon">Bacon
+			<input type="checkbox" name = "toppings" value="M&Ms">M&Ms
+			<input type="checkbox" name = "toppings" value="Reeses">Reese's Pieces<br>
+			<input type="checkbox" name = "toppings" value="Skittles">Skittles
+			<input type="checkbox" name = "toppings" value="MiniChocolateChips">Mini Chocolate Chips
+			<input type="checkbox" name = "toppings" value="Oreo Bits">Oreo Bits
+			<input type="checkbox" name = "toppings" value="Twix Bits">Twix Bits
+			<input type="checkbox" name = "toppings" value="Butterfinger Bits">Butterfinger Bits
+			<input type="checkbox" name = "toppings" value="Snicker Bits">Snicker Bits<br>
+			<input type="checkbox" name = "toppings" value="Mini Marshmellows">Mini Marshmellows<br>
+
+			<input type = "button" name="CheckAll" value="All Toppings"
+			onClick="checkAll(document.all)">
+
+			<input type ="button" name="UncheckAll" value = "Clear All Toppings"
+			onClick="uncheckAll (document.all)">
+			<br>
+		</div>
+		<div>
+			<input type ="button" name="ResetCupcake" value="Reset Cupcake"
+			onClick = "resetCupcake()">
+			<div id="incdec">
+				<input type="text" value="0" />
+				<img src="up_arrow.jpeg" id="up" />
+				<img serc="down_arrow.jpeg" id="down" />
+			</div>
+			<input type ="button" name="UpdateOrder" value ="Update Order"
+			onClick = "updateOrder()">
+		</div>
+		</form>
+	</body>
+</html>
