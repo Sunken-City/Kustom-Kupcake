@@ -15,12 +15,22 @@ form{
         float:right;
         width: 600px;
 	height: 1000px;
-
-
 }
 
 #createAccount input{
 
         display:inline;
+}
+
+#Flavor {
+
+        width:1000px;
+
+}
+
+#Flavor td {
+
+
+        border: 1px solid black;
 }
 

@@ -13,7 +13,7 @@ form{
 #createAccountDiv{
         
         float:right;
-        width: 400px;
+        width: 600px;
 	height: 1000px;
 
 
