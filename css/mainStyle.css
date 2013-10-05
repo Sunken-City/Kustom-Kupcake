@@ -3,14 +3,19 @@ form{
         background-color: gray;
 }
 #logInDiv{
+
+        margin-right:0px;
+        margin-left:auto;
         display:block;
-        right:0px;
+        width: 550px;
+	height: 50px;
 }
 #createAccountDiv{
         
         float:right;
-        width: 400px;
+        width: 600px;
 	height: 1000px;
+
 
 }
 
