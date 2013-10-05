@@ -15,7 +15,7 @@
 		<form id="createAccount" action="#">
 			<h1>Create a Custom Cupcake Account</h1>
 				<input type="text" placeholder="Join Our Mailing List:" id="joinMailing" required/>
-				 First Name : <input type="text" placeholder="First Name" id="firstName" required/>
+				<input type="text" placeholder="First Name" id="firstName" required> First Name </input>
 				<input type="text" placeholder="Last Name" id="lastName" required/>
 				<input type="email" placeholder="Email" id="email" required auto-complete:"off"/>
 				<input type="password" placeholder="Password" id="newPassword" required/>
