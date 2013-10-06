@@ -2,26 +2,30 @@ form{
         font-family: arial;
         background-color: gray;
 }
-#logInDiv{
 
+#logInDiv{
         margin-right:0px;
         margin-left:auto;
         display:block;
-        width: 550px;
+        width: 250px;
 	height: 50px;
 }
+
+
 #signUp {
         display:block
         margin-right:auto;
         margin-left:auto;
 
 }
+
 #createAccountDiv{
-        
         float:right;
         width: 600px;
 	height: 1000px;
+        padding-top: 100px;
 }
+
 
 #createAccount input{
         display:inline;
@@ -33,13 +37,20 @@ form{
         border: 5px solid black;
         margin-right:auto;
         margin-left:auto;
-        width:1000px;
+}
+.submitButton{
+        float: right
+}
 
+#createAccountDiv h1{
+        text-align: center;
+}
+
+#Flavor {
+        width:1000px;
 }
 
 #Flavor td {
-
-
         border: 1px solid black;
 }
 
