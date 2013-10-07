@@ -1,3 +1,5 @@
+<!-- Author: Nathan Moore -->
+
 <!DOCTYPE HTML>
 
 <html lang="en">
@@ -7,20 +9,21 @@
 		<title>Custom Cupcakes</title>
 		<link rel="stylesheet" type="text/css" href="css/mainStyle.css">
     	<script src="mainScript.js"></script>
+    	<meta charset="UTF-8">
 
 	</head>	
 
 	<body>
 		<section id="logInSection">
 			<div id="logInDiv">
-				<form id="logIn" action="#" method="post" auto-complete:"off">
+				<form id="logIn" action="#" method="post" autocomplete="off">
 					<table>
 						<tr>
-							<td>Username: </td>
+							<td><label>Username: </label></td>
 							<td><input type="email" placeholder="Email" id="username" required auto-complete:"off"/></td>
 						</tr>
 						<tr>
-		        			<td>Password: </td>
+		        			<td><label>Password: </label></td>
 		        			<td><input type="password" placeholder="Password" id="password" required/></td>
 		        		</tr>
 	        			<tr>
@@ -34,46 +37,46 @@
 
 		<section id="createAccountSection">
 			<div id="createAccountDiv">
-				<form id="createAccount" action="#" method="post" auto-complete:"off">
+				<form id="createAccount" action="php/createAccount.php" method="post" autocomplete="off">
 					<h1 id="createAcountHeader">Create a Custom Cupcake Account</h1>
 					<table>
 						<tr>
-							<td>Join Mailing List: </td>
+							<td><label>Join Mailing List: </label></td>
 							<td required>
 								<input type="radio" name="yesjoin" value="Yes" id="yesJoin" class="joinMailing"/>Yes
 								<input type="radio" name="nojoin" value="No" id="noJoin" class="joinMailing"/>No
 							</td>
 						</tr>
 						<tr>
-							<td>First Name: </td>
+							<td><label>First Name: </label></td>
 							<td><input type="text" placeholder="First Name" id="firstName" title="Cannot be left empty" required/></td>
 						</tr>
 						<tr>
-							<td>Last Name: </td>
+							<td><label>Last Name: </label></td>
 							<td><input type="text" placeholder="Last Name" id="lastName" title="Cannot be left empty" required/></td>
 						</tr>
 						<tr>
-							<td>Email: </td>
+							<td><label>Email: </label></td>
 							<td><input type="email" placeholder="me@example.com" id="email" title="Must be a valid email using '@' and '.' "required /></td>
 						</tr>
 						<tr>
-							<td>Password: </td>
+							<td><label>Password: </label></td>
 							<td><input type="password" placeholder="Password" pattern=".{8,}" title="Password must be 8 characters or longer" id="newPassword" required/></td>
 						</tr>
 						<tr>
-							<td>Telephone Number: </td>
+							<td><label>Telephone Number: </label></td>
 							<td><input type="tel" placeholder="Phone Number" pattern="\d{3,}[\-]\d{3,}[\-]\d{4,}" title="10 digit phone number with dashes" id="telephone" required/></td>
 						</tr>
 						<tr>
-							<td>Address: </td>
+							<td><label>Address: </label></td>
 							<td><input type="text" placeholder="Address" id="address" required/></td>
 						</tr>
 						<tr>
-							<td>City: </td>
+							<td><label>City: </label></td>
 							<td><input type="text" placeholder="City" id="city" required/></td>
 						</tr>
 						<tr>
-							<td>State: </td>
+							<td><label>State: </label></td>
 							<td>
 								<select name="states" id="state" required>
 									<option value="AK">Alaska</option>
@@ -139,7 +142,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td>Zip: </td>
+							<td><label>Zip: </label></td>
 							<td><input type="text" placeholder="5 Digit Zip" pattern="[0-9]{5,}" title="5 digit postal code" id="zipcode" required/></td>
 						</tr>
 						<tr>
@@ -152,10 +155,12 @@
 		</section>
 
 		<section id="slogan">
-			<img src="artwork/cupcake_icon.PNG" id="logo" alt="Custom Cupcakes Logo"/>
-			<p id="greatFlavors">Great Flavors!</p>
-			<p id="awesomeCupcakes">Awesome Cupcakes!</p>
-			<p id="fastDelivery">Fast Delivery!</p>
+			<div class="Slogan">
+				<img src="artwork/cupcake_icon.png" id="logo" alt="Custom Cupcakes Logo"/>
+				<p id="greatFlavors">Great Flavors!</p>
+				<p id="awesomeCupcakes">Awesome Cupcakes!</p>
+				<p id="fastDelivery">Fast Delivery!</p>
+			</div>
 		</section> 
 
 	</body>
