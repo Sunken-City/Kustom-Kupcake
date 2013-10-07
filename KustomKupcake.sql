@@ -9,7 +9,7 @@ use customcupcakes;
 CREATE TABLE users (
    fName varchar(20) NOT NULL,
    lName varchar(20) NOT NULL,
-   mailing int default '1',
+   joinMailing int default '1',
    employee int default '0',
    email varchar(50) NOT NULL,
    password varchar(20) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE users (
    state varchar(2) NOT NULL,
    zip int NOT NULL,
    PRIMARY KEY(email)
-);
+) engine = innodb;
 
 CREATE TABLE cupcakes (
    flavor varchar(20) NOT NULL,
@@ -29,22 +29,23 @@ CREATE TABLE cupcakes (
    cupcakeID int NOT NULL,
    cost int NOT NULL,
    PRIMARY KEY(cupcakeID)
-);
+) engine = innodb;
 
 CREATE TABLE purchases (
    purchaseID int NOT NULL,
    quantity int NOT NULL,
    cupcakeID int NOT NULL,
    email varchar(50) NOT NULL,
-   PRIMARY KEY(purchaseID),
+   PRIMARY KEY(purchaseID, cupcakeID, email),
    CONSTRAINT FOREIGN KEY(email) REFERENCES users(email),
    CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID)
-);
+) engine = innodb;
 
 CREATE TABLE favorites (
    cupcakeID int NOT NULL,
    email varchar(50) NOT NULL,
    cupcakeName varchar(20) NOT NULL,
+   PRIMARY KEY(cupcakeID, email),
    CONSTRAINT FOREIGN KEY(email) REFERENCES users(email),
    CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID)
-);
+) engine = innodb;
