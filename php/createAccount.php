@@ -29,7 +29,9 @@
 			//[0] = username
 			//[1] = password
 
-
+			//////////////////////////////////////////////////////////////////////
+			////TODO: official data validation before sticking in the database////
+			//////////////////////////////////////////////////////////////////////
 			foreach($_POST as $key => $val)
 			{
 				$formData[$key] = htmlentities($val,ENT_QUOTES,'UTF-8');
@@ -46,7 +48,7 @@
 				$submission = submitToDB($formData);
 			}
 
-			if (submission)
+			if ($submission)
 			{
 				// If processing was successful, redirect
 	    		header("Location: http://Kustom-Kupcake/cupcakeordering.html");

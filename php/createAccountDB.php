@@ -11,7 +11,6 @@
 	<body>
 
 		<?php
-			
 			//connect to the database: 
 			$con = mysql_connect("localhost","cupcaker","nomnomnom");
 			if (!$con)
@@ -21,13 +20,13 @@
 			mysql_select_db("customcupcakes",$con) or die("Unable to select database:" . mysql_error());
 
 			function submitToDB($formData) {
-				$submitted = false;
+				$submitted = true;
 
 				return $submitted;
 			}
 
 			function authenticate($formData) {
-				$authenticated = false;
+				$authenticated = true;
 
 				return $authenticated;
 			}
