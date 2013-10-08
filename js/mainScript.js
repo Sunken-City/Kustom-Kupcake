@@ -3,11 +3,7 @@
 
 window.onload=function(){
 
-	var x = 2;
-	var y = 3;
-	if (x < y) {
-		x = y + 10;
-	}
+	//
 
 }
 

@@ -14,23 +14,6 @@
 		<?php
 
 			include 'createAccountDB.php';
-
-			#############################################################################
-			#validates user inputted email: Is it acceptably formatted for the database?#
-			#############################################################################
-			function validateEmail($email) {
-
-				//
-				return $email;
-			}
-			################################################################################
-			#validates user inputted password: Is it acceptably formatted for the database?#
-			################################################################################
-			function validatePassword($pass) {
-
-				//
-				return $pass;
-			}
 			
 			$submission = true; //if successful submission of the form
 			$formData = array(); //an array to house the submitted from data
@@ -44,9 +27,6 @@
 			//[7] = City
 			//[8] = states
 			//[9] = zip
-			// OR
-			//[0] = user (email)
-			//[1] = pwd
 
 			###############################################
 			#Insert user input data from form in $formData#
@@ -57,32 +37,23 @@
 
 				if (!isset($formData[$key])) {
 
-					die("Invalid form data");
+					break;
 				}
 
 			}
 			######################################################
-			# If user just submitted data to create a new account#
+			# User just submitted data to create a new account#
 			######################################################
 			if (isset($formData['join']) && isset($formData['fname']) && isset($formData['lname']) 
 				&& isset($formData['Email']) && isset($formData['newpwd']) && isset($formData['phone']) 
 				&& isset($formData['Address']) && isset($formData['City']) && isset($formData['states']) 
 				&& isset($formData['zip']))  {
-				//Validate all data: Make sure it's acceptable to input the given data to the database
+				
+				//strip out any nondigits
+				$formData['phone'] = preg_replace(/\D/g, '', $formData['phone']);
 
 				$submission = submitToDB($formData); // send validated data to next layer for submission to database
 
-			} elseif (isset($formData['user']) && isset($formData['pwd'])) { //if user just submitted data as existing account
-				//Validate and Authenticate data
-
-				$formData['user'] = validateEmail($formData['user']);
-				$formData['pwd'] = validatePassword($formData['pwd']);
-
-			 	$submission = authenticate($formData);
-
-			} else {
-
-				die("Error loging in: Please go back to the previous page");
 			}
 			#######################################################
 			#If form data was successfully authenticated/submitted#
@@ -90,10 +61,6 @@
 			if ($submission) {
 				// Redirect to
 	    		header("Location: http://Kustom-Kupcake/cupcakeordering.html");
-
-			} else {
-
-				die("Can't authenticate");
 			}
 
 		?>
