@@ -50,7 +50,8 @@
 				&& isset($formData['zip']))  {
 				
 				//strip out any nondigits
-				$formData['phone'] = preg_replace(/\D/g, '', $formData['phone']);
+				$pattern = '/\D/g';
+				$formData['phone'] = preg_replace($pattern,'',$formData['phone']);
 
 				$submission = submitToDB($formData); // send validated data to next layer for submission to database
 
