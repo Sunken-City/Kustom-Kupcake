@@ -10,16 +10,15 @@ form{
         width: 250px;
 	height: 50px;
 }
-<<<<<<< HEAD
+
+
 #signUp {
         display:block
         margin-right:auto;
         margin-left:auto;
 
 }
-=======
 
->>>>>>> 01cbf87890059ad988815951cebaa575ef232291
 #createAccountDiv{
         float:right;
         width: 600px;
@@ -27,18 +26,23 @@ form{
         padding-top: 100px;
 }
 
-<<<<<<< HEAD
+
 #createAccount input{
         display:inline;
         margin-left:10px;
 }
 
-#Flavor {
+#Flavor{
 
         border: 5px solid black;
         margin-right:auto;
         margin-left:auto;
-=======
+        display:block;
+        width:800px;
+        height:150px;
+       table-layout:fixed;
+       width:100%;
+}
 .submitButton{
         float: right
 }
@@ -47,12 +51,20 @@ form{
         text-align: center;
 }
 
-#Flavor {
->>>>>>> 01cbf87890059ad988815951cebaa575ef232291
-        width:1000px;
-}
 
 #Flavor td {
         border: 1px solid black;
+}
+
+#toppings {
+	
+	margin-right:auto;
+        margin-left:auto;	
+        display:block;
+        width: 500px;
+}
+#toppings * {
+	margin-right:auto;
+        margin-left:auto;
 }
 
