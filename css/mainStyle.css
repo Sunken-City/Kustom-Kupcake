@@ -32,11 +32,15 @@ form{
         margin-left:10px;
 }
 
-#Flavor {
+#Flavor{
 
         border: 5px solid black;
         margin-right:auto;
         margin-left:auto;
+        display:block;
+        width:800px;
+        height:150px;
+       table-layout:fixed;
 }
 .submitButton{
         float: right
@@ -46,11 +50,20 @@ form{
         text-align: center;
 }
 
-#Flavor {
-        width:1000px;
-}
 
 #Flavor td {
         border: 1px solid black;
+}
+
+#toppings {
+	
+	margin-right:auto;
+        margin-left:auto;	
+        display:block;
+        width: 500px;
+}
+#toppings * {
+	margin-right:auto;
+        margin-left:auto;
 }
 
