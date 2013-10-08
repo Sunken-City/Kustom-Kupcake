@@ -11,7 +11,10 @@
 	<body>
 
 		<?php
+			include 'createAccountDB.php';
+			//validateHostName('Kustom-Kupcake'); 
 			
+			$submission = false;
 			$formData = array(); //an array to house the submitted from data
 			//[0] = joinYes || joinNo
 			//[1] = firstName
@@ -23,6 +26,9 @@
 			//[7] = city
 			//[8] = state
 			//[9] = zipcode
+			// OR
+			//[0] = username
+			//[1] = password
 
 
 			foreach($_POST as $key => $val)
@@ -34,16 +40,22 @@
 				}
 			}
 
-			//connect to the database: 
-			$con = mysql_connect("localhost","cupcaker","nomnomnom");
-			if (!$con)
+			if (sizeof($formData) < 10) {
+				$submission = authenticate($formData);
+			} else
 			{
-				die('Could not connect: ' . mysql_error());
+				$submission = submitToDB($formData);
 			}
-			mysql_select_db("customcupcakes",$con) or die("Unable to select database:" . mysql_error());
 
-			// If processing was successful, redirect
-	    	header("Location: http://Kustom-Kupcake/cupcakeordering.html");
+			if (submission)
+			{
+				// If processing was successful, redirect
+	    		header("Location: http://Kustom-Kupcake/cupcakeordering.html");
+			} else
+			{
+				die("Can't authenticate");
+			}
+			
 
 		?>
 

@@ -1,11 +1,33 @@
 //Author: Nathan Moore
-$(document).ready(function(){
-   
-	$con = mysql_connect("Kustom-Kupcake","root","AtWsBcOotLFRR!");
-	if (!$con)
-	{
-		die('Could not connect: ' . mysql_error());
-	}
-	mysql_select_db("customcupcakes",$con) or die("Unable to select database:" . mysql_error());
 
- });
+
+window.onload=function(){
+
+	var x = 2;
+	var y = 3;
+	if (x < y) {
+		x = y + 10;
+	}
+
+}
+
+function validateTely(){
+
+	var validated = false;
+
+	var tely = document.getElementById('telephone').value;
+	tely = tely.replace(/\D/g,'');
+
+	var telypattern = /\d{10,}/g;
+
+	if (tely.match(telypattern))
+	{
+		validated = true;
+	}
+	else
+	{
+		alert("Phone Number must be valid 10 digit phone number");
+	}
+
+	return validated;
+}

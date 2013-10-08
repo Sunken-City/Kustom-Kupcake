@@ -8,8 +8,8 @@
 
 		<title>Custom Cupcakes</title>
 		<link rel="stylesheet" type="text/css" href="css/mainStyle.css">
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    	<script src="mainScript.js"></script>
+    	<script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    	<script type = "text/javascript" src="js/mainScript.js"></script>
     	<meta charset="UTF-8">
 
 	</head>	
@@ -38,7 +38,7 @@
 
 		<section id="createAccountSection">
 			<div id="createAccountDiv">
-				<form id="createAccount" action="php/createAccount.php" method="post" autocomplete="off">
+				<form id="createAccount" action="php/createAccount.php" onsubmit="return validateTely()" method="post" autocomplete="off">
 					<h1 id="createAcountHeader">Create a Custom Cupcake Account</h1>
 					<table>
 						<tr>
@@ -66,7 +66,10 @@
 						</tr>
 						<tr>
 							<td><label>Telephone Number: </label></td>
-							<td><input type="tel" placeholder="Phone # with no dashes" pattern="[2-9]{1,}\d{2,}[2-9]{1,}\d{6,}" name="phone" title="Valid 10 digit phone number without dashes: 1st and 4th digits must be 2-9 to be valid" id="telephone" required/></td>
+							<!-- onsubmit="return validateTely();" 
+								 pattern="[2-9]{1,}\d{2,}[2-9]{1,}\d{6,}"
+							-->
+							<td><input type="tel" placeholder="Phone Number" name="phone" id="telephone" title="Valid 10 digit phone number"  required/></td>
 						</tr>
 						<tr>
 							<td><label>Address: </label></td>
