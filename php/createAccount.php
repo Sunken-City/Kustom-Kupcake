@@ -12,7 +12,6 @@
 
 		<?php
 			include 'createAccountDB.php';
-			//validateHostName('Kustom-Kupcake'); 
 			
 			$submission = false;
 			$formData = array(); //an array to house the submitted from data
