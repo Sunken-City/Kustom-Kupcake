@@ -1,11 +1,21 @@
 //Author: Nathan Moore
 
 
-window.onload=function(){
+$(document).ready(function() {
+	alert("Page Loaded");
 
-	//
+	//authenticate user after login
+		//add submit listener to log in button
+	$("#logIn").submit(function(e){
+		
+		$.ajax ({
 
-}
+			url: "logIn.php"
+
+		});
+	}
+
+});
 
 function validateTely(){
 
