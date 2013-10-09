@@ -1,6 +1,12 @@
+body {
+    background-color:#50EBEC;
+}
 form{ 
     font-family: arial;
-    background-color: gray;
+    background-color: #6AFB92;
+}
+h1{
+    font-size:75px;
 }
 
 #logInDiv{
@@ -11,6 +17,10 @@ form{
 	height: 50px;
 }
 
+#slogan{
+    margin-left:25px;
+    margin-top:150px;
+}
 
 #signUp {
     display:block
@@ -32,6 +42,11 @@ form{
     margin-left:10px;
 }
 
+#state {
+    margin-left: 10px;
+    width: 172px;
+}
+
 #Flavorholder{
 
     border: 5px solid black;
@@ -40,7 +55,7 @@ form{
     display:block;
     width:800px;
     height:160px;
-    verflow:scroll;
+    overflow:scroll;
     /*table-layout:fixed;*/
 }
 #Flavor{
@@ -70,5 +85,9 @@ form{
 #toppings * {
 	margin-right:auto;
     margin-left:auto;
+}
+
+.selected {
+    background-color: rgba(255,0,0,.5);
 }
 

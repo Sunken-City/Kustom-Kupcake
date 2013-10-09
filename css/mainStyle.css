@@ -1,6 +1,12 @@
+body {
+    background-color:#50EBEC;
+}
 form{ 
     font-family: arial;
-    background-color: gray;
+    background-color: #6AFB92;
+}
+h2{
+    font-size:75px;
 }
 
 #logInDiv{
@@ -11,6 +17,10 @@ form{
 	height: 50px;
 }
 
+#slogan{
+    margin-left:25px;
+    margin-top:150px;
+}
 
 #signUp {
     display:block
