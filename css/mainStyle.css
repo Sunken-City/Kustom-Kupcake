@@ -56,7 +56,7 @@ h2{
     width:800px;
     height:160px;
     overflow:scroll;
-    /*table-layout:fixed;*/
+    background:white;
 }
 #Flavor{
 

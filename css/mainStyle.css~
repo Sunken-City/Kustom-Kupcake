@@ -5,7 +5,7 @@ form{
     font-family: arial;
     background-color: #6AFB92;
 }
-h1{
+h2{
     font-size:75px;
 }
 
