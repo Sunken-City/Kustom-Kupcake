@@ -63,7 +63,7 @@
 			#######################################################
 			if ($submission) {
 				// Redirect to
-	    		header("Location: http://Kustom-Kupcake/cupcakeordering.html");
+	    		include 'redirect.php';
 			} else {
 				die ("I don't know what you did, but it was a mistake. Go back and do not return here!");
 			}
