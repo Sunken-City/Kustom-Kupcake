@@ -32,6 +32,11 @@ form{
     margin-left:10px;
 }
 
+#state {
+    margin-left: 10px;
+    width: 172px;
+}
+
 #Flavorholder{
 
     border: 5px solid black;
@@ -40,7 +45,7 @@ form{
     display:block;
     width:800px;
     height:160px;
-    verflow:scroll;
+    overflow:scroll;
     /*table-layout:fixed;*/
 }
 #Flavor{
