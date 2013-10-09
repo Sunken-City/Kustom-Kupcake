@@ -12,7 +12,7 @@
 
 		<?php
 			
-			header("Location: http://Kustom-Kupcake/cupcakeordering.html");
+			header("Location: http://54.200.82.84/Kustom-Kupcake/cupcakeordering.html");
 
 		?>
 

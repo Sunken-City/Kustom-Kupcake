@@ -16,9 +16,9 @@
 			##############################################################
 			function submitToDB($formData) {
 
-				$submitted = true;
+				$submitted = true; /*Will change when I get a real database to work with*/
 
-				$con = mysql_connect("localhost","cupcaker","nomnomnom");
+				$con = mysql_connect("localhost","cupcaker","nomnomnom"); /*will change for real server*/
 				if (!$con) {
 
 					die('Could not connect: ' . mysql_error());
@@ -39,7 +39,7 @@
 				|*|
 				\*/
 
-				
+
 
 				mysql_close($con);
 
