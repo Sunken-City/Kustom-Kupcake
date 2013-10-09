@@ -26,6 +26,21 @@
 
 				mysql_select_db("customcupcakes",$con) or die("Unable to select database:" . mysql_error());
 
+				/*\
+				|*|
+				|*|					:: << TODO >> ::
+				|*|		# See if the user email is already in database
+				|*|		# If it is, then do something about it
+				|*|			% ...
+				|*|			% ...
+				|*|		# If not (Yay!) add new data to database
+				|*|
+				|*|
+				|*|
+				\*/
+
+				
+
 				mysql_close($con);
 
 				return $submitted;

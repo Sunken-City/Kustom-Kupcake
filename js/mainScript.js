@@ -1,20 +1,23 @@
 //Author: Nathan Moore
-
+//Scripts to run in concert with index.html
 
 $(document).ready(function() {
 	alert("Page Loaded");
 
-	//authenticate user after login
-
-	// var authenticate = new XMLHttpRequest();
-
-	// authenticate.open("POST","php/logIn.php",true);
-	// authenticate.send();
-
-	// authenticate.onreadystatechange = function () {
-
-	// }
-
+	/*\
+	|*|				:: >> Authenticate User After Login << ::
+	|*|
+	|*|		# add a click listener to the submit button associated 
+	|*|			with the log in form (not the create account form)
+	|*|		# make sure password is at least 8 characters long
+	|*|		# make an ajax request that sends the form data to 
+	|*|			logIn.php for authentication
+	|*|		# if it is authenticated (i.e., success) the page will 
+	|*|			be redirected to the cupcakeordering.html page
+	|*|		# otherwise an alert will go off and form submission will 
+	|*|			be aborted
+	|*|
+	\*/
 	$("#logInButton").click(function(e) {
 		var username = $("#username").val();
 		var password = $("#pwd").val();
@@ -38,6 +41,15 @@ $(document).ready(function() {
 		return false;
 
 	});
+
+	// var authenticate = new XMLHttpRequest();
+
+	// authenticate.open("POST","php/logIn.php",true);
+	// authenticate.send();
+
+	// authenticate.onreadystatechange = function () {
+
+	// }
 
 
 	// $("#logIn").click(function(e) {
@@ -71,6 +83,17 @@ $(document).ready(function() {
 	// });
 	//$.ajax({ url: 'php/redirect.php' });
 });
+
+	/*\
+	|*|				:: >> Validate Telephone Number Inputted By User << ::
+	|*|
+	|*|		# returns boolean validated: true if valid, false (default) 
+	|*|		# use DOM to get the value inputted by user 
+	|*|		# strip out all non digits
+	|*|		# check against regexp: must be 10 digits
+	|*|		# alert the user and abort submission if invalid
+	|*|
+	\*/
 
 function validateTely(){
 
