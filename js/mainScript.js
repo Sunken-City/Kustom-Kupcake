@@ -5,16 +5,36 @@ $(document).ready(function() {
 	alert("Page Loaded");
 
 	//authenticate user after login
-		//add submit listener to log in button
-	$("#logIn").submit(function(e){
-		
-		$.ajax ({
+	// $("#logIn").click(function(e) {
+	// 	//add submit listener to log in button
+	// 	$('#message').slideUp('fast');
 
-			url: "logIn.php"
+	// 	$.post('php/logIn.php',$("#logIn").serialize()+'&action=
+	// 		'+ $(event.target).attr('id'),function(data) {
 
-		});
-	}
+	// 		var code = $(data)[0].nodeName.toLowerCase();
 
+	//     	$('#message').removeClass('error');
+	//       	$('#message').removeClass('success');
+	//       	$('#message').addClass(code);
+	//       	if(code == 'success') {
+
+	//       		//redirect
+	//       		$.ajax({ url: 'php/redirect.php' });
+	        
+	//       	}
+	//       	else if(code == 'error') {
+	//       		$.ajax({ url: 'php/redirect.php' });
+	//         	//$('#message').html('An error occurred, please try again.');
+	//         	//$('#message').slideDown('fast');
+	//       	}
+
+	// 	});
+
+	// 	return e.preventDefault();
+
+	// });
+	//$.ajax({ url: 'php/redirect.php' });
 });
 
 function validateTely(){

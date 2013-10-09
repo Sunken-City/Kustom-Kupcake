@@ -55,6 +55,8 @@
 
 				$submission = submitToDB($formData); // send validated data to next layer for submission to database
 
+			} else {
+				die ("I don't know what you did, but it was a mistake. Go back and do not return here!");
 			}
 			#######################################################
 			#If form data was successfully authenticated/submitted#
@@ -62,6 +64,8 @@
 			if ($submission) {
 				// Redirect to
 	    		header("Location: http://Kustom-Kupcake/cupcakeordering.html");
+			} else {
+				die ("I don't know what you did, but it was a mistake. Go back and do not return here!");
 			}
 
 		?>
