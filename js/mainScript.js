@@ -5,6 +5,41 @@ $(document).ready(function() {
 	alert("Page Loaded");
 
 	//authenticate user after login
+
+	// var authenticate = new XMLHttpRequest();
+
+	// authenticate.open("POST","php/logIn.php",true);
+	// authenticate.send();
+
+	// authenticate.onreadystatechange = function () {
+
+	// }
+
+	$("#logInButton").click(function(e) {
+		var username = $("#username").val();
+		var password = $("#pwd").val();
+		var pwdPattern = /.{8,}/g;
+
+		if( !password.match(pwdPattern) ) {
+			alert("Password is Invalid");
+			return false;
+		}
+		var dataString = 'username='+ username + '&password=' + password;
+
+		$.ajax({
+			type: "POST",
+			url: "php/logIn.php",
+			data: dataString,
+			success: function () {
+				$.ajax({ url: 'php/redirect.php' });
+			}
+		});
+
+		return false;
+
+	});
+
+
 	// $("#logIn").click(function(e) {
 	// 	//add submit listener to log in button
 	// 	$('#message').slideUp('fast');
