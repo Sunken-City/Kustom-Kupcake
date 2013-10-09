@@ -1,4 +1,5 @@
 window.onload = function(){
+	alert("loaded");
 	function selectImage(e){
 		var pics=document.getElementsByTagName('img');
 
@@ -7,7 +8,7 @@ window.onload = function(){
 		}
 
 		var picture = e.target;
-		picture.setAttribute('class','selected)');
+		picture.setAttribute('class','selected');
 	}
 
 	var imgs = document.getElementsByTagName('img');

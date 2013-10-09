@@ -25,6 +25,10 @@
 			############################################################
 			#Check user credentials against known users: Query database#
 			############################################################
+
+			
+
+			
 			function authenticate($formData) {
 				$authenticated = true;
 

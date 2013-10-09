@@ -39,7 +39,7 @@
 				|*|
 				\*/
 
-
+				$getEmailIfExists = "la la";
 
 				mysql_close($con);
 

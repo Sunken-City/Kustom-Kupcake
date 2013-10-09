@@ -18,6 +18,7 @@ $(document).ready(function() {
 	|*|			be aborted
 	|*|
 	\*/
+	
 	$("#logInButton").click(function(e) {
 		var username = $("#username").val();
 		var password = $("#pwd").val();
