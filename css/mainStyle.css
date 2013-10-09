@@ -32,15 +32,20 @@ form{
         margin-left:10px;
 }
 
-#Flavor{
+#Flavorholder{
 
         border: 5px solid black;
         margin-right:auto;
         margin-left:auto;
         display:block;
         width:800px;
-        height:150px;
-       table-layout:fixed;
+        height:160px;
+        overflow:scroll;
+       /*table-layout:fixed;*/
+}
+#Flavor{
+
+        table-layout:fixed;
 }
 .submitButton{
         float: right
