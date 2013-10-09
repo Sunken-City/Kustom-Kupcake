@@ -7,45 +7,88 @@ CREATE DATABASE customcupcakes;
 use customcupcakes;
 
 CREATE TABLE users (
-   fName varchar(20) NOT NULL,
-   lName varchar(20) NOT NULL,
-   joinMailing int default '1',
-   employee int default '0',
+   UserID int NOT NULL,
+   onMailingList varchar(3) NOT NULL,
+   employee varchar(3) NOT NULL,
+   givenName varchar(20) NOT NULL,
+   surname varchar(20) NOT NULL,
+   streetAddress varchar(50) NOT NULL,
+   city varchar(50) NOT NULL,
+   state varchar(2) NOT NULL,
+   zipCode int NOT NULL,
    email varchar(50) NOT NULL,
    password varchar(20) NOT NULL,
-   telephone varchar(10) NOT NULL,
-   address varchar(30) NOT NULL,
-   city varchar(20) NOT NULL,
-   state varchar(2) NOT NULL,
-   zip int NOT NULL,
-   PRIMARY KEY(email)
+   telephone int NOT NULL,
+   PRIMARY KEY(email),
+   UNIQUE KEY(UserID)   
+) engine = innodb;
+
+CREATE TABLE flavor (
+   flavorID int NOT NULL,
+   flavorName varchar(25),
+   PRIMARY KEY(flavorID)
 ) engine = innodb;
 
 CREATE TABLE cupcakes (
-   flavor varchar(20) NOT NULL,
-   icing varchar(20) NOT NULL,
-   filling int NOT NULL,
-   toppings int NOT NULL,
+   flavorID int NOT NULL,
    cupcakeID int NOT NULL,
    cost int NOT NULL,
-   PRIMARY KEY(cupcakeID)
+   PRIMARY KEY(cupcakeID),
+   CONSTRAINT FOREIGN KEY(flavorID) REFERENCES flavor(flavorID)
+) engine = innodb;
+
+CREATE TABLE topping (
+   toppingID int NOT NULL,
+   toppingName varchar(25) NOT NULL,
+   PRIMARY KEY(toppingID)
+) engine = innodb;
+
+CREATE TABLE toppingBridge (
+   cupcakeID int NOT NULL,
+   toppingID int NOT NULL,
+   bridgeID int NOT NULL,
+   PRIMARY KEY(bridgeID),
+   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID),
+   CONSTRAINT FOREIGN KEY(toppingID) REFERENCES topping(toppingID)
+) engine = innodb;
+
+CREATE TABLE filling (
+   fillingID int NOT NULL,
+   fillingName varchar(25),
+   PRIMARY KEY(fillingID)
+) engine = innodb;
+
+CREATE TABLE icing (
+   icingID int NOT NULL,
+   icingName varchar(25) NOT NULL,
+   PRIMARY KEY(icingID)
 ) engine = innodb;
 
 CREATE TABLE purchases (
    purchaseID int NOT NULL,
    quantity int NOT NULL,
    cupcakeID int NOT NULL,
+   fillingID int NOT NULL,
+   icingID int NOT NULL,
    email varchar(50) NOT NULL,
    PRIMARY KEY(purchaseID, cupcakeID, email),
    CONSTRAINT FOREIGN KEY(email) REFERENCES users(email),
-   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID)
+   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID),
+   CONSTRAINT FOREIGN KEY(fillingID) REFERENCES filling(fillingID),
+   CONSTRAINT FOREIGN KEY(icingID) REFERENCES icing(icingID)
 ) engine = innodb;
 
 CREATE TABLE favorites (
-   cupcakeID int NOT NULL,
+   favoriteID int NOT NULL,
    email varchar(50) NOT NULL,
    cupcakeName varchar(20) NOT NULL,
+   cupcakeID int NOT NULL,
+   fillingID int NOT NULL,
+   icingID int NOT NULL,
    PRIMARY KEY(cupcakeID, email),
    CONSTRAINT FOREIGN KEY(email) REFERENCES users(email),
-   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID)
+   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID),
+   CONSTRAINT FOREIGN KEY(fillingID) REFERENCES filling(fillingID),
+   CONSTRAINT FOREIGN KEY(icingID) REFERENCES icing(icingID)
 ) engine = innodb;
+
