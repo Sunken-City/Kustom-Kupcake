@@ -34,7 +34,7 @@ $(document).ready(function() {
 				$.ajax({ url: 'php/redirect.php' });
 			}
 		});
-
+		alert("Username or password is incorrect!");
 		return false;
 
 	});
