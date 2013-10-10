@@ -96,6 +96,8 @@ $(document).ready(function() {
 	$("#resetCupcake").click(function(e) {
 
 		$("td").removeClass("selected");
+		$("img").removeClass("selected");
+		uncheckAllBoxes();
 	})
 
 
