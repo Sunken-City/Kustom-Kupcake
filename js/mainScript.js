@@ -43,6 +43,40 @@ $(document).ready(function() {
 
 	});
 
+});
+
+	/*\
+	|*|				:: >> Validate Telephone Number Inputted By User << ::
+	|*|
+	|*|		# returns boolean validated: true if valid, false (default) 
+	|*|		# use DOM to get the value inputted by user 
+	|*|		# strip out all non digits
+	|*|		# check against regexp: must be 10 digits
+	|*|		# alert the user and abort submission if invalid
+	|*|
+	\*/
+
+function validateTely(){
+
+	var validated = false;
+
+	var tely = document.getElementById('telephone').value;
+	tely = tely.replace(/\D/g,'');
+
+	var telypattern = /\d{10,}/g;
+
+	if (tely.match(telypattern))
+	{
+		validated = true;
+	}
+	else
+	{
+		alert("Phone Number must be valid 10 digit phone number");
+	}
+
+	return validated;
+}
+
 	// var authenticate = new XMLHttpRequest();
 
 	// authenticate.open("POST","php/logIn.php",true);
@@ -83,36 +117,3 @@ $(document).ready(function() {
 
 	// });
 	//$.ajax({ url: 'php/redirect.php' });
-});
-
-	/*\
-	|*|				:: >> Validate Telephone Number Inputted By User << ::
-	|*|
-	|*|		# returns boolean validated: true if valid, false (default) 
-	|*|		# use DOM to get the value inputted by user 
-	|*|		# strip out all non digits
-	|*|		# check against regexp: must be 10 digits
-	|*|		# alert the user and abort submission if invalid
-	|*|
-	\*/
-
-function validateTely(){
-
-	var validated = false;
-
-	var tely = document.getElementById('telephone').value;
-	tely = tely.replace(/\D/g,'');
-
-	var telypattern = /\d{10,}/g;
-
-	if (tely.match(telypattern))
-	{
-		validated = true;
-	}
-	else
-	{
-		alert("Phone Number must be valid 10 digit phone number");
-	}
-
-	return validated;
-}

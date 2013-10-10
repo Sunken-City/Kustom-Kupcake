@@ -11,9 +11,17 @@
 	<body>
 
 		<?php
-			##############################################################
-			#Input validated data to database: For creating a new account#
-			##############################################################
+
+			/*\
+			|*|
+			|*|		:: >> Input 'validated' user data to database for creating new user account << ::
+			|*|		
+			|*|			#connect to database
+			|*|			#check if email inputted by user is already associated with a user
+			|*|			#if not, then go and insert data into database
+			|*|
+			\*/
+
 			function submitToDB($formData) {
 
 				$submitted = true; /*Will change when I get a real database to work with*/
@@ -23,7 +31,8 @@
 					printf("Connect failed: %s\n", mysqli_connect_errno());
 					exit();
 				}
-				//check if email user inputted is already associated with a user
+
+				#check if email inputted by user is already associated with a user
 				$checkEmailQuery = "SELECT email FROM users WHERE email = " . $formData['Email'];
 				$checkEmail = mysqli_query($db,$checkEmailQuery);
 
@@ -32,8 +41,8 @@
 						 Please return to the previous page and log in with your 
 						 password or use a different email.');
 				}
-				//else submit form data as new user to database
 
+				#if not, then go and insert data into database
 
 				mysqli_close($db);
 
