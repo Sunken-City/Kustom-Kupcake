@@ -30,6 +30,7 @@ $(document).ready(function() {
 	function selectFilling(e){
 
 		var fillings=document.getElementById('Filling').getElementsByTagName('td');
+		var fillings2=document.getElementById('Filling').getElementsByTagName('img');
 
 		for(var i = 0, len=fillings.length;i < len; i++) {
 			fillings[i].setAttribute('class','');
@@ -39,6 +40,7 @@ $(document).ready(function() {
 		selectedFilling.setAttribute('class','selected');
 	}
 	var fillings = document.getElementById('Filling').getElementsByTagName('td');
+	var fillings2 =document.getElementById('Filling').getElementsByTagName('img');
 
 	for(var i = 0, len = fillings.length;i<len;i++) {
 		fillings[i].addEventListener('click',selectFilling,false);
@@ -47,6 +49,7 @@ $(document).ready(function() {
 	function selectIcing(e){
 
 		var icings=document.getElementById('Icing').getElementsByTagName('td');
+		var icings=document.getElementById('Icing').getElementsByTagName('img');
 
 		for(var i = 0, len=icings.length;i < len; i++) {
 			icings[i].setAttribute('class','');
@@ -56,6 +59,7 @@ $(document).ready(function() {
 		selectedIcing.setAttribute('class','selected');
 	}
 	var icings = document.getElementById('Icing').getElementsByTagName('td');
+	var icings=document.getElementById('Icing').getElementsByTagName('img');
 
 	for(var i = 0, len = icings.length;i<len;i++) {
 		icings[i].addEventListener('click',selectIcing,false);
