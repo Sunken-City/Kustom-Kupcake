@@ -3,9 +3,12 @@ $(document).ready(function() {
 
 	var checkBoxesButton = document.getElementById('checkAll');
 	var uncheckBoxesButton = document.getElementById('uncheckAll');
+	var resetCupcake = document.getElementById('resetCupcake');
 
 	uncheckBoxesButton.onclick=uncheckAllBoxes;
 	checkBoxesButton.onclick=checkAllBoxes;
+	resetCupcake.onclick=resetCupcake;
+
 	function selectFlavor(e){
 
 		var flavors=document.getElementById('Flavor').getElementsByTagName('td');
@@ -90,15 +93,11 @@ $(document).ready(function() {
 
 	}
 
-	function resetCupcake(){
-		var cupcakes = document.getElementsByTagName('td');
-		var cupcakesimg = document.getElementsByTagName('img');
+	$("#resetCupcake").click(function(e) {
 
-		for(var i = 0; i < cupcakes.length; i++){
-			cupcakes[i].setAttribute('class','');
-		}
+		$("td").removeClass("selected");
+	})
 
-	}
 
 	$("#quantityCupcakes").keypress(function(event){
 		if (event.which == 45) {
