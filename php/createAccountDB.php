@@ -25,7 +25,7 @@
 				}
 				mysql_select_db("phptest",$con) or die("Unable to select database:" . mysql_error());
 			
-				$query = "select * from user where id = '";
+				$query = "select * from user where email = '";
 				$query = $query . $_POST['id'] . "' and pw = '" . $_POST['pw'] . "'";
 
 				$result = mysql_query($query);

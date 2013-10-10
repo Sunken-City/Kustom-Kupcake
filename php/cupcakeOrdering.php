@@ -11,34 +11,34 @@
 			}
 
 			mysql_select_db("customcupcakes");
-			$result = mysql_query("SELECT * FROM flavors");
+			$result = mysql_query("SELECT * FROM flavor");
 
 			echo "<table id="flavor">
 					<tbody>"
 			while($var = mysql_fetch_assoc($result)){
-				$pic = $var["picLock"];
+				$pic = $var["picLoc"];
 				$flavor = $var["flavorName"];
 			echo "<td> <img src="$pic"> $flavor</td>";}
 			echo "</tbody>
 				</table>";
 
 
-			$result = mysql_query("SELECT * FROM fillings");
+			$result = mysql_query("SELECT * FROM filling");
 			echo "<table id="filling">
 					<tbody>";
 			while($var = mysql_fetch_assoc($result)){
-				$pic = $var["picLock"];
+				$pic = $var["rgbVal"];
 				$filling = $var["fillingName"];
 			echo "<td> <img src="$pic"> $filling</td>";}
 			echo "</tbody>
 				</table>";
 
-			$result = mysql_query("SELECT * FROM icings");
+			$result = mysql_query("SELECT * FROM icing");
 			echo "<table id="icing">
 					<tbody>";
 			while($var = mysql_fetch_assoc($result)){
-				$pic = $var["picLock"];
-				$icing = $var["icinggName"];
+				$pic = $var["picLoc"];
+				$icing = $var["icingName"];
 			echo "<td> <img src="$pic"> $icing</td>";}
 			echo "</tbody>
 				</table>";
