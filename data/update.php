@@ -7,16 +7,18 @@ function importDataToDB()
   $json_string = 'http://54.200.82.84/Kustom-Kupcake/data/menu.json';
   $json = file_get_contents($json_string);
   
-  $result = json_decode($json);
-  foreach($result as $key => $value) 
+  $result = json_decode($json, TRUE);
+  /*foreach($result as $value) 
   {
       if($value) 
       {
-
-	      //how to use json array to insert data in Database
-	  mysql_query("INSERT INTO customcupcakes (source, ypos, template) VALUES ($value->source, $value->ypos,$value->template)");
+	  //mysql_query
+	  echo("INSERT INTO cupcakes (flavorID, ypos, template) VALUES ($value['menu']['cakes']['flavor'], $value->ypos,$value->template)");
       }
   mysql_close($con);
-  }
+  }*/
+  include 'simplexlsx.class.php';
+  $xlsx = new SimpleXLSX('http://54.200.82.84/Kustom-Kupcake/data/CustomCupcakesDBData-FavoriteCupcakes.xlsx');
+  print_r( $xlsx->rows() );
 }
 ?>
