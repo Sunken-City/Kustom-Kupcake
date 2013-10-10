@@ -6,7 +6,8 @@ $(document).ready(function() {
 		var pics=document.getElementsByClassName('FlavorClass');
 
 		for(var i = 0, len=pics.length;i < len; i++) {
-			pics[i].removeClass("selected");
+			pics[i].setAttribute('class','');
+			pics[i].setAttribute('class','FlavorClass');
 		}
 
 		var picture = e.target;

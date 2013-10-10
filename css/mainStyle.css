@@ -86,8 +86,8 @@ h2{
 	margin-right:auto;
     margin-left:auto;
 }
-.FlavorClass{
-	padding:2px
+.td{
+	padding:3px
 }
 .selected {
     background-color: rgba(255,0,0,.5);
