@@ -15,18 +15,18 @@
 
 			include 'createAccountDB.php';
 			
-			$submission = true; //if successful submission of the form
-			$formData = array(); //an array to house the submitted from data
-			//[0] = join
-			//[1] = fname
-			//[2] = lname
-			//[3] = Email
-			//[4] = newpwd
-			//[5] = phone
-			//[6] = Address
-			//[7] = City
-			//[8] = states
-			//[9] = zip
+			$submission = true; #if successful submission of the form
+			$formData = array(); #an array to house the submitted from data
+			#[0] = join
+			#[1] = fname
+			#[2] = lname
+			#[3] = Email
+			#[4] = newpwd
+			#[5] = phone
+			#[6] = Address
+			#[7] = City
+			#[8] = states
+			#[9] = zip
 
 			###############################################
 			#Insert user input data from form in $formData#
@@ -49,7 +49,7 @@
 				&& isset($formData['Address']) && isset($formData['City']) && isset($formData['states']) 
 				&& isset($formData['zip']))  {
 
-				//strip out any nondigits
+				# Sstrip out any nondigits
 				$pattern = '/\D/';
 				$formData['phone'] = preg_replace($pattern,'',$formData['phone']);
 
@@ -62,7 +62,7 @@
 			#If form data was successfully authenticated/submitted#
 			#######################################################
 			if ($submission) {
-				// Redirect to
+				# Redirect to
 	    		include 'redirect.php';
 			} else {
 				die ("I don't know what you did, but it was a mistake. Go back and do not return here!");

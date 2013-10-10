@@ -57,17 +57,18 @@
 
 				$id = intval($frow['max(UserID)']);
 
-				//	$formData format: 		::		database columns:	
-				//	[0] = join 				::	UserID				password
-				//	[1] = fname 			::	onMailingList		telephone
-				//	[2] = lname 			::	employee
-				//	[3] = Email 			::	givenName
-				//	[4] = newpwd 			::	surname
-				//	[5] = phone 			::	streetAddress
-				//	[6] = Address 		 	::	city
-				//	[7] = City 				::	state
-				//	[8] = states 			::	zipCode
-				//	[9] = zip 				::	email
+				#	$formData format: 		::		database columns:	
+				#	[0] = join 				::	UserID				password
+				#	[1] = fname 			::	onMailingList		telephone
+				#	[2] = lname 			::	employee
+				#	[3] = Email 			::	givenName
+				#	[4] = newpwd 			::	surname
+				#	[5] = phone 			::	streetAddress
+				#	[6] = Address 		 	::	city
+				#	[7] = City 				::	state
+				#	[8] = states 			::	zipCode
+				#	[9] = zip 				::	email
+				
 				$id++;
 				$onMailingList = "no";
 				$employee = "no";
@@ -91,8 +92,11 @@
 				//mysqli_query($db,$insertAllQuery);
 
 				if (!mysqli_query($db,$insertAllQuery)) {
+					echo "There was an error processing your request. Please return to the previous page. Here's the error if you wanted to know:\n";
 					die('Error: ' . mysqli_error($db));
 				}
+
+				//
 
 				// $selectAll = "SELECT * FROM users";
 				// $result = mysqli_query($db,$selectAll);
