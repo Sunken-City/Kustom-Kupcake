@@ -50,25 +50,63 @@
 
 				#first must get the highest current user id and add 1 to it to make the new user's id
 
-				$getMaxIDQuery = "SELECT max(UserId) FROM users";
+				$getMaxIDQuery = "SELECT max(UserID) FROM users";
 				$getMaxID = mysqli_query($db,$getMaxIDQuery);
 
 				$frow = mysqli_fetch_array($getMaxID);
 
-				$id = intval($frow['max(UserId)']);
-				$id++;
+				$id = intval($frow['max(UserID)']);
 
-				//$formdata format: 	::	database columns:
-				//[0] = join 			::	
-				//[1] = fname 			::
-				//[2] = lname 			::
-				//[3] = Email 			::
-				//[4] = newpwd 			::
-				//[5] = phone 			::
-				//[6] = Address 		::
-				//[7] = City 			::
-				//[8] = states 			::
-				//[9] = zip 			::
+				//	$formData format: 		::		database columns:	
+				//	[0] = join 				::	UserID				password
+				//	[1] = fname 			::	onMailingList		telephone
+				//	[2] = lname 			::	employee
+				//	[3] = Email 			::	givenName
+				//	[4] = newpwd 			::	surname
+				//	[5] = phone 			::	streetAddress
+				//	[6] = Address 		 	::	city
+				//	[7] = City 				::	state
+				//	[8] = states 			::	zipCode
+				//	[9] = zip 				::	email
+				$id++;
+				$onMailingList = "no";
+				$employee = "no";
+				$givenName = $formData['fname'];
+				$surname = $formData['lname'];
+				$streetAddress = $formData['Address'];
+				$city = $formData['City'];
+				$state = $formData['states'];
+				$zipCode = $formData['zip'];
+				$email = $formData['Email'];
+				$password = $formData['newpwd'];
+				$telephone = $formData['phone'];
+
+
+				if ($formData['join'] === 'yes') {
+					$onMailingList = "yes";
+				}
+
+				$insertAllQuery = "INSERT INTO users (UserID,onMailingList,employee,givenName,surname,streetAddress,city,state,zipCode,email,password,telephone)
+					 VALUES ( '$id', '$onMailingList', '$employee', '$givenName', '$surname', '$streetAddress', '$city', '$state', '$zipCode', '$email', '$password', '$telephone')";
+				//mysqli_query($db,$insertAllQuery);
+
+				if (!mysqli_query($db,$insertAllQuery)) {
+					die('Error: ' . mysqli_error($db));
+				}
+
+				// $selectAll = "SELECT * FROM users";
+				// $result = mysqli_query($db,$selectAll);
+
+				// while($row = mysqli_fetch_array($result)) {
+				// 	echo $row['UserID'] . " " . $row['onMailingList'] . " " . $row['employee']
+				// 		. " " . $row['givenName'] . " " . $row['surname'] . " " . $row['streetAddress'] . " " . $row['city']
+				// 		. " " . $row['state'] . " " . $row['zipCode'] . " " . $row['email'] . " " . $row['password']
+				// 		. " " . $row['telephone'];
+				// 	echo "<br>";
+				// }
+				// die (" ");
+
+				//die ($insertAllQuery);
 
 				mysqli_close($db);
 

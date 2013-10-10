@@ -48,9 +48,9 @@
 				&& isset($formData['Email']) && isset($formData['newpwd']) && isset($formData['phone']) 
 				&& isset($formData['Address']) && isset($formData['City']) && isset($formData['states']) 
 				&& isset($formData['zip']))  {
-				
+
 				//strip out any nondigits
-				$pattern = '/\D/g';
+				$pattern = '/\D/';
 				$formData['phone'] = preg_replace($pattern,'',$formData['phone']);
 
 				$submission = submitToDB($formData); // send validated data to next layer for submission to database
