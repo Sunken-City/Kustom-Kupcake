@@ -9,18 +9,22 @@ $(document).ready(function() {
 	function selectFlavor(e){
 
 		var flavors=document.getElementById('Flavor').getElementsByTagName('td');
+		var flavors2=document.getElementById('Flavor').getElementsByTagName('img');
 
 		for(var i = 0, len=flavors.length;i < len; i++) {
 			flavors[i].setAttribute('class','');
+			flavors2[i].setAttribute('class','');
 		}
 
 		var selectedFlavor = e.target;
 		selectedFlavor.setAttribute('class','selected');
 	}
 	var flavors = document.getElementById('Flavor').getElementsByTagName('td');
+	var flavors2 = document.getElementById('Flavor').getElementsByTagName('img');
 
 	for(var i = 0, len = flavors.length;i<len;i++) {
 		flavors[i].addEventListener('click',selectFlavor,false);
+		flavors2[i].addEventListener('click',selectFlavor,false);
 	}
 
 	function selectFilling(e){

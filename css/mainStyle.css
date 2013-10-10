@@ -86,9 +86,15 @@ h2{
 	margin-right:auto;
     margin-left:auto;
 }
+
 .td{
 	padding:3px
 }
+
+img {
+    padding: 1px;
+}
+
 .selected {
     background-color: rgba(255,0,0,.5);
 }
