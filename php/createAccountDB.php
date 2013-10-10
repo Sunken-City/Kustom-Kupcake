@@ -18,35 +18,22 @@
 
 				$submitted = true; /*Will change when I get a real database to work with*/
 
-				$con = mysql_connect("localhost","cupcaker","nomnomnom"); /*will change for real server*/
-				if (!$con) {
-
+				$con = mysql_connect("projectsite","phpuser","some_pass");
+				if (!$con)
+				{
 					die('Could not connect: ' . mysql_error());
 				}
+				mysql_select_db("phptest",$con) or die("Unable to select database:" . mysql_error());
+			
+				$query = "select * from user where id = '";
+				$query = $query . $_POST['id'] . "' and pw = '" . $_POST['pw'] . "'";
 
-				mysql_select_db("customcupcakes",$con) or die("Unable to select database:" . mysql_error());
-
-				/*\
-				|*|
-				|*|					:: << TODO >> ::
-				|*|		# See if the user email is already in database
-				|*|		# If it is, then do something about it
-				|*|			% ...
-				|*|			% ...
-				|*|		# If not (Yay!) add new data to database
-				|*|
-				|*|
-				|*|
-				\*/
-
-				$getEmailIfExistsQuery = "SELECT email FROM users WHERE (email = " . $formData['Email'] . ")";
-				$getEmailIfExistsResult = mysql_query($getEmailIfExistsQuery);
+				$result = mysql_query($query);
 
 				if (mysql_num_rows($result) == 0)
-					echo "yay";
+					header ('Location: http://projectsite/error.html');
 				else
-					die("Error: The email you entered is already associated with a user. Return to the previous page and enter a different email.");
-
+					header ('Location: http://projectsite/success.html');
 
 				mysql_close($con);
 
