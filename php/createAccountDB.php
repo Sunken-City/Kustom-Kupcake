@@ -17,25 +17,25 @@
 			function submitToDB($formData) {
 
 				$submitted = true; /*Will change when I get a real database to work with*/
+				$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
 
-				$con = mysql_connect("projectsite","phpuser","some_pass");
-				if (!$con)
-				{
-					die('Could not connect: ' . mysql_error());
+				if (mysqli_connect_errno()) {
+					printf("Connect failed: %s\n", mysqli_connect_errno());
+					exit();
 				}
-				mysql_select_db("phptest",$con) or die("Unable to select database:" . mysql_error());
-			
-				$query = "select * from user where email = '";
-				$query = $query . $_POST['id'] . "' and password = '" . $_POST['pw'] . "'";
+				//check if email user inputted is already associated with a user
+				$checkEmailQuery = "SELECT email FROM users WHERE email = " . $formData['Email'];
+				$checkEmail = mysqli_query($db,$checkEmailQuery);
 
-				$result = mysql_query($query);
+				if (!(mysqli_num_rows($checkEmail) == 0)) {
+					die('The email you entered is already associated with a user.
+						 Please return to the previous page and log in with your 
+						 password or use a different email.');
+				}
+				//else submit form data as new user to database
 
-				if (mysql_num_rows($result) == 0)
-					header ('Location: http://projectsite/error.html');
-				else
-					header ('Location: http://projectsite/success.html');
 
-				mysql_close($con);
+				mysqli_close($db);
 
 				return $submitted;
 			}
