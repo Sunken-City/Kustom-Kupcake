@@ -104,6 +104,6 @@ $(document).ready(function() {
 		if (event.which == 45) {
 			event.preventDefault();
 		}
-	}
+	})
 	
 });
