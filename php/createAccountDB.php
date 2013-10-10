@@ -39,7 +39,14 @@
 				|*|
 				\*/
 
-				$getEmailIfExists = "la la";
+				$getEmailIfExistsQuery = "SELECT email FROM users WHERE (email = " . $formData['Email'] . ")";
+				$getEmailIfExistsResult = mysql_query($getEmailIfExistsQuery);
+
+				if (mysql_num_rows($result) == 0)
+					echo "yay";
+				else
+					die("Error: The email you entered is already associated with a user. Return to the previous page and enter a different email.");
+
 
 				mysql_close($con);
 
