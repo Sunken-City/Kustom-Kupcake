@@ -89,4 +89,21 @@ $(document).ready(function() {
 		}
 
 	}
+
+	function resetCupcake(){
+		var cupcakes = document.getElementsByTagName('td');
+		var cupcakesimg = document.getElementsByTagName('img');
+
+		for(var i = 0; i < cupcakes.length; i++){
+			cupcakes[i].setAttribute('class','');
+		}
+
+	}
+
+	$("#quantityCupcakes").keypress(function(event){
+		if (event.which == 45) {
+			event.preventDefault();
+		}
+	}
+	
 });

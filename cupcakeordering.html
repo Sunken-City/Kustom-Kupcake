@@ -52,7 +52,7 @@
 
 
 
-		<form name="cupcakesForm" action="CCanalytics.html" method="POST">
+		<form name="cupcakesForm" action="CCAnalytics.html" method="POST">
 		<div id="toppings"><br>
 			<input type="checkbox" name = "toppings" value="Sprinkles">Sprinkles
 			<input type="checkbox" name = "toppings" value="Bacon">Bacon
@@ -76,10 +76,8 @@
 		<div>
 			<input type ="button" id = "resetCupcake" name="ResetCupcake" value="Reset Cupcake"
 			onClick = "resetCupcake()">
-			<div id="incdec">
-				<input type="text" value="0" />
-				<img src="up_arrow.jpeg" id="up" />
-				<img serc="down_arrow.jpeg" id="down" />
+			<div id="quantity">
+				<input id = "quantityCupcakes" type="number" min="0" max="99999"/>
 			</div>
 			<input type ="button" name="UpdateOrder" value ="Update Order"
 			onClick = "updateOrder()">
