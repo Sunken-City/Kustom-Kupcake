@@ -11,8 +11,9 @@ $(document).ready(function() {
 
 	$.ajax({
 			type: "POST",
-			url: "php/cupcakeOrdering.php",
+			url: "php/cupcakeOrdering.php"
 	});
+
 	function selectFlavor(e){
 
 		var flavors=document.getElementById('Flavor').getElementsByTagName('td');
@@ -111,4 +112,17 @@ $(document).ready(function() {
 		}
 	})
 	
+	$("#updateOrder").click(function(e){
+		var flavor = document.getElementById('Flavor').getElementsByClassName('selected');
+		var filling = document.getElementById('Filling').getElementsByClassName('selected');
+		var filling = document.getElementById('Icing').getElementsByClassName('selected');
+
+		$('input:checked').each(function(){
+			toppings.push($(this).attr("name") + this.id);
+		})
+	})
+	$("#submitOrder").click(function(e) {
+
+	})
+	{}
 });
