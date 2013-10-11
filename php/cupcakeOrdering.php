@@ -21,8 +21,8 @@
 				//do something with the pic and flavor??//
 				echo '
 				
-					<td name=$flavor>
-						<img src="artwork/$pic" alt=$flavor> $flavor
+					<td name="$flavor">
+						<img src="artwork/'$pic'" alt="$flavor"> "$flavor"
 					</td>';
 
 				}echo "</tbody></table>";
@@ -39,8 +39,8 @@
 				//do something with the pic and filling??//
 				echo '
 				
-					<td name=$filling>
-						<img src="artwork/$pic" alt=$filling> $filling
+					<td name="$filling">
+						<img src="artwork/'$pic'" alt="$filling"> "$filling"
 					</td>';
 
 				}echo "</tbody> </table>";
@@ -56,12 +56,10 @@
 				//do something with the pic and filling??//
 				echo '
 				
-					<td name=$icing>
+					<td name="$icing">
 					</td>';
 
 				}echo "</tbody> </table>";
-
-			die("Get rid of this die after you test this page if not sooner");
 		?>
 	<body>
 </html>
