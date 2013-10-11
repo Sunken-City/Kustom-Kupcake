@@ -41,7 +41,7 @@ $(document).ready(function() {
 			if(data['success']) {
 				//e.preventDefault();
             	// do successful things
-            	window.location.href = "php/redirect.php";
+            	window.location.href = "php/redirect2.php";
         	}
         	else {
             	// do failure things

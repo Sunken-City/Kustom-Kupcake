@@ -36,7 +36,7 @@
 
 			if (mysqli_num_rows($request) == 0) {
 				$authenticated = false;
-			}
+			}	
 
 			mysql_close($con);
 
