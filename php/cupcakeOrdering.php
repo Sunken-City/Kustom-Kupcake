@@ -19,11 +19,11 @@
 				$pic = $row["picLoc"];
 				$flavor = $row["flavorName"];
 				//do something with the pic and flavor??//
-				echo "
+				echo '
 				
 					<td name=$flavor>
 						<img src="artwork/$pic" alt=$flavor> $flavor
-					</td>";
+					</td>';
 
 				}echo "</tbody></table>";
 
@@ -37,11 +37,11 @@
 				$pic = $row["rgbVal"];
 				$filling = $row["fillingName"];
 				//do something with the pic and filling??//
-				echo "
+				echo '
 				
 					<td name=$filling>
 						<img src="artwork/$pic" alt=$filling> $filling
-					</td>";
+					</td>';
 
 				}echo "</tbody> </table>";
 
@@ -54,11 +54,10 @@
 				$pic = $row["picLoc"];
 				$icing = $row["icingName"];
 				//do something with the pic and filling??//
-				echo "
+				echo '
 				
 					<td name=$icing>
-					<img src="artwork/$pic" alt=$icing> $icing
-					</td>";
+					</td>';
 
 				}echo "</tbody> </table>";
 
