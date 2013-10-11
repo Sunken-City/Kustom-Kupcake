@@ -4,17 +4,19 @@
 			###########################
 			$authenticated = true;
 			$formData = array();
+			$pass = $_POST['pass'];
+			$user = $_POST['user'];
 
-			foreach($_POST as $key => $val) {
+			// foreach($_POST as $key => $val) {
 
-				$formData[$key] = htmlentities($val,ENT_QUOTES,'UTF-8');
+			// 	$formData[$key] = htmlentities($val,ENT_QUOTES,'UTF-8');
 
-				if (!isset($formData[$key])) {
+			// 	if (!isset($formData[$key])) {
 
-					break;
-				}
+			// 		break;
+			// 	}
 
-			}
+			// }
 
 			//die ($username . "&" . $password);
 
@@ -28,7 +30,7 @@
 			#Check user credentials against known users: Query database#
 			############################################################
 
-			$requestString = "select email,password from users where(email = 'a@a.a' && password = 'abcdefghijklmn')";
+			$requestString = "SELECT email,password FROM users WHERE(email = '$user' && password = '$pass')";
 
 			$request = mysqli_query($db,$requestString);
 

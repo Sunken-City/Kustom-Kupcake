@@ -29,7 +29,12 @@ $(document).ready(function() {
 		// 	alert("Password is Invalid");
 		// }
 
-		var formData = $("#logIn").serialize();
+		//var formData = $("#logIn").serialize();
+		var formData = {pass: password, user: username};
+		//var x = JSON.stringify(formData);
+
+		//var formData = form.serialize();
+		//alert(formData);
 
 		$.post("php/logIn.php",formData,function(data){
 			//alert(data['success']);
