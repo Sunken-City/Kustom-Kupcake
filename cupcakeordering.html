@@ -54,17 +54,17 @@
 
 		<form id="cupcakesForm" name="cupcakesForm" action="CCAnalytics.html" method="POST">
 		<div id="toppings"><br>
-			<input type="checkbox" name = "toppings" value="Sprinkles">Sprinkles
-			<input type="checkbox" name = "toppings" value="Bacon">Bacon
-			<input type="checkbox" name = "toppings" value="M&Ms">M&Ms
-			<input type="checkbox" name = "toppings" value="Reeses">Reeses Pieces<br>
-			<input type="checkbox" name = "toppings" value="Skittles">Skittles
-			<input type="checkbox" name = "toppings" value="MiniChocolateChips">Mini Chocolate Chips
-			<input type="checkbox" name = "toppings" value="Oreo Bits">Oreo Bits
-			<input type="checkbox" name = "toppings" value="Twix Bits">Twix Bits<br>
-			<input type="checkbox" name = "toppings" value="Butterfinger Bits">Butterfinger Bits
-			<input type="checkbox" name = "toppings" value="Snicker Bits">Snicker Bits
-			<input type="checkbox" name = "toppings" value="Mini Marshmellows">Mini Marshmellows<br>
+			<input type="checkbox" name = "sprinkles" value="Sprinkles">Sprinkles
+			<input type="checkbox" name = "bacon" value="Bacon">Bacon
+			<input type="checkbox" name = "m&ms" value="M&Ms">M&Ms
+			<input type="checkbox" name = "reeses" value="Reeses">Reeses Pieces<br>
+			<input type="checkbox" name = "skittles" value="Skittles">Skittles
+			<input type="checkbox" name = "minichocolatechips" value="MiniChocolateChips">Mini Chocolate Chips
+			<input type="checkbox" name = "oreo bits" value="Oreo Bits">Oreo Bits
+			<input type="checkbox" name = "twix bits" value="Twix Bits">Twix Bits<br>
+			<input type="checkbox" name = "butterfinger bits" value="Butterfinger Bits">Butterfinger Bits
+			<input type="checkbox" name = "snickers bits" value="Snicker Bits">Snicker Bits
+			<input type="checkbox" name = "mini marshmellows" value="Mini Marshmellows">Mini Marshmellows<br>
 
 			<input type = "button" id="checkAll" name="CheckAll" value="All Toppings"
 			onClick="checkAll(document.all)">
@@ -85,5 +85,12 @@
 			<input type="submit" id="submitOrder" name="analyticsSubmit" value = "Submit Order">
 		</div>
 		</form>
+		<div id="shoppingCart">
+			<input type="button" id="deleteRow" name="deleteRow" value = "Delete Selected Rows">
+			<table id="cupcakeCart">
+				<tbody>
+				</tbody>
+			</table>
+		</div>
 	</body>
 </html>
