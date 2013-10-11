@@ -56,7 +56,7 @@ h2{
     width:800px;
     height:160px;
     overflow:scroll;
-    /*table-layout:fixed;*/
+    background:white;
 }
 #Flavor{
 
@@ -85,6 +85,14 @@ h2{
 #toppings * {
 	margin-right:auto;
     margin-left:auto;
+}
+
+.td{
+	padding:3px
+}
+
+img {
+    padding: 1px;
 }
 
 .selected {
