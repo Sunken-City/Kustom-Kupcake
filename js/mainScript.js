@@ -31,26 +31,66 @@ $(document).ready(function() {
 
 		var formData = $("#logIn").serialize();
 
-		$.post("php/logIn.php",formData,function(data,status,xhr) {
-			//window.location.href = "php/redirect.php";
+		$.post("php/logIn.php",formData,function(data){
+			//alert(data['success']);
 			if(data['success']) {
+				//e.preventDefault();
             	// do successful things
             	window.location.href = "php/redirect.php";
         	}
         	else {
             	// do failure things
-            	alert(data);
+            	//e.preventDefault();
+            	alert("Username or Password is Invalid!");
         	}
-		},json)
-		.done(function() {
-    		//alert( "second success" );
-  		})
-  		.fail(function() {
-    		alert( "Password or Username Invalid!" );
-  		})
-  		.always(function() {
-    		//alert( "finished" );
-		});
+		},"json");
+
+		// $.post("php/logIn.php",formData,function(data,status,xhr) {
+		// 	//window.location.href = "php/redirect.php";
+		// 	alert(data['success']);
+			// if(data['success']) {
+			// 	//e.preventDefault();
+   //          	// do successful things
+   //          	window.location.href = "php/redirect.php";
+   //      	}
+   //      	else {
+   //          	// do failure things
+   //          	//e.preventDefault();
+   //          	alert(data['success']);
+   //      	}
+		// });
+
+		// $.ajax({
+		// 	url:"php/logIn.php",
+		// 	type: "POST";
+		// 	dataType: "json";
+		// 	data: formData;
+		// 	success: function(data,status,xhr) {
+		// 		if(data['success']) {
+		// 			//e.preventDefault();
+	 //            	// do successful things
+	 //            	window.location.href = "php/redirect.php";
+	 //        	}
+	 //        	else {
+	 //            	// do failure things
+	 //            	//e.preventDefault();
+	 //            	alert(data['success']);
+	 //        	}
+		// 	}
+		// })
+		// .fail(function() {
+		//     alert( "error" );
+		// });
+		// .done(function() {
+  //   		//alert( "second success" );
+  // 		})
+  // 		.fail(function() {
+  // 			e.preventDefault();
+  //   		alert( "Password or Username Invalid!" );
+  // 		})
+  // 		.always(function() {
+  //   		//alert( "finished" );
+		// });
 
 		// $.ajax({
 		// 	type: "POST",

@@ -1,15 +1,3 @@
-<!-- Author: Nathan Moore -->
-<!-- Gets data from mainScript.js ajax call and communicates with database as necessary -->
-<html>
-
-	<head>
-
-		<title>Log In Database Communication</title>
-
-	</head>
-
-	<body>
-
 		<?php
 			###########################
 			#connect to the database: #
@@ -40,17 +28,19 @@
 			#Check user credentials against known users: Query database#
 			############################################################
 
-			$requestString = "SELECT email,password FROM users WHERE (";
+			$requestString = "select email,password from users where(email = 'a@a.a' && password = 'abcdefghijklmn')";
+
+			$request = mysqli_query($db,$requestString);
+
+			if (mysqli_num_rows($request) == 0) {
+				$authenticated = false;
+			}
 
 			mysql_close($con);
 
-			$postData = array("success" => $authenticated);
+			$postData = array('success' => $authenticated);
 
 			//header("js/mainScript.js");
 			echo json_encode($postData);
 
 		?>
-
-	</body>
-
-</html>
