@@ -44,6 +44,11 @@
 
 			mysql_close($con);
 
+			$postData = array("success" => $authenticated);
+
+			//header("js/mainScript.js");
+			echo json_encode($postData);
+
 		?>
 
 	</body>
