@@ -62,6 +62,19 @@
 					</td>";
 
 				}echo "</tbody> </table>";
+				
+			$result = mysqli_query($db,"SELECT * FROM topping");
+			echo "<br>";
+			echo "<table>
+					<tbody>";
+			while($row = mysqli_fetch_assoc($result)){
+				$name = $row["toppingName"];
+				//do something with the pic and filling??//
+				echo "
+				    <input type=\"checkbox\" name = $name value=$name>$name
+				";
+
+				}echo "</tbody> </table>";
 		?>
 	<body>
 </html>
