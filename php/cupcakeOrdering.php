@@ -4,44 +4,48 @@
 	</head>
 	<body>
 		<?php
-			$con=mysql_connect("localhost","cupcaker","nomnomnom");
+			$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
 
-			if (!$con){
-				die('Could not connect: ' . mysql_error());
+			if (mysqli_connect_errno()) {
+				printf("Connect failed: %s\n", mysqli_connect_errno());
+				exit();
 			}
 
-			mysql_select_db("customcupcakes");
-			$result = mysql_query("SELECT * FROM flavor");
+			$result = mysqli_query($db,"SELECT * FROM flavor");
 
-			echo "<table id="flavor">
-					<tbody>"
-			while($var = mysql_fetch_assoc($result)){
-				$pic = $var["picLoc"];
-				$flavor = $var["flavorName"];
-			echo "<td> <img src="$pic"> $flavor</td>";}
-			echo "</tbody>
-				</table>";
+			while($row = mysqli_fetch_assoc($result)) {
+
+				$pic = $row["picLoc"];
+				$flavor = $row["flavorName"];
+				//do something with the pic and flavor??//
+				echo "picLoc: " . $pic . " & flavorName: " . $flavor;
+				echo "<br>";
+			}
 
 
-			$result = mysql_query("SELECT * FROM filling");
-			echo "<table id="filling">
-					<tbody>";
-			while($var = mysql_fetch_assoc($result)){
-				$pic = $var["rgbVal"];
-				$filling = $var["fillingName"];
-			echo "<td> <img src="$pic"> $filling</td>";}
-			echo "</tbody>
-				</table>";
+			$result = mysqli_query($db,"SELECT * FROM filling");
+			echo "<br>";
 
-			$result = mysql_query("SELECT * FROM icing");
-			echo "<table id="icing">
-					<tbody>";
-			while($var = mysql_fetch_assoc($result)){
-				$pic = $var["picLoc"];
-				$icing = $var["icingName"];
-			echo "<td> <img src="$pic"> $icing</td>";}
-			echo "</tbody>
-				</table>";
+			while($row = mysqli_fetch_assoc($result)) {
+
+				$pic = $row["rgbVal"];
+				$filling = $row["fillingName"];
+				//do something with the pic and filling??//
+				echo "rgbVal: " . $pic . " & fillingName: " . $filling;
+				echo "<br>";
+			}
+
+			$result = mysqli_query($db,"SELECT * FROM icing");
+			echo "<br>";
+
+			while($row = mysqli_fetch_assoc($result)){
+				$pic = $row["picLoc"];
+				$icing = $row["icingName"];
+				//do something with the pic and filling??//
+				echo "picLoc: " . $pic . " & icingName: " . $icing;
+				echo "<br>";
+			}
+			die("Get rid of this die after you test this page if not sooner");
 		?>
 	<body>
 </html>

@@ -1,6 +1,14 @@
 $(document).ready(function() {
 	alert("loaded");
 
+	function loadPage () {
+		$.ajax({
+			url: "php/cupcakeOrdering.php"
+		});
+	}
+
+	loadPage();
+
 	var checkBoxesButton = document.getElementById('checkAll');
 	var uncheckBoxesButton = document.getElementById('uncheckAll');
 	var resetCupcake = document.getElementById('resetCupcake');
@@ -9,10 +17,6 @@ $(document).ready(function() {
 	checkBoxesButton.onclick=checkAllBoxes;
 	resetCupcake.onclick=resetCupcake;
 
-	$.ajax({
-			type: "POST",
-			url: "php/cupcakeOrdering.php",
-	});
 	function selectFlavor(e){
 
 		var flavors=document.getElementById('Flavor').getElementsByTagName('td');
@@ -97,6 +101,10 @@ $(document).ready(function() {
 
 	}
 
+	$("#submitOrderButton").click(function(e) {
+		//ajax call to the database with all the analytics
+	});
+
 	$("#resetCupcake").click(function(e) {
 
 		$("td").removeClass("selected");
@@ -112,3 +120,4 @@ $(document).ready(function() {
 	})
 	
 });
+
