@@ -9,6 +9,10 @@ $(document).ready(function() {
 	checkBoxesButton.onclick=checkAllBoxes;
 	resetCupcake.onclick=resetCupcake;
 
+	$.ajax({
+			type: "POST",
+			url: "php/cupcakeOrdering.php",
+	});
 	function selectFlavor(e){
 
 		var flavors=document.getElementById('Flavor').getElementsByTagName('td');
