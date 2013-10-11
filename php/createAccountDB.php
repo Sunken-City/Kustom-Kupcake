@@ -1,16 +1,6 @@
-<!-- Author: Nathan Moore -->
-<!-- Gets data from createAccount.php and communicates with database as necessary -->
-<html>
-
-	<head>
-
-		<title>Create Account to Database Communication</title>
-
-	</head>
-
-	<body>
-
 		<?php
+			#<!-- Author: Nathan Moore -->
+			#<!-- Gets data from createAccount.php and communicates with database as necessary -->
 
 			/*\
 			|*|
@@ -99,22 +89,6 @@
 					echo "There was an error processing your request. Please return to the previous page. Here's the error if you wanted to know:\n";
 					die('Error: ' . mysqli_error($db));
 				}
-
-				//
-
-				// $selectAll = "SELECT * FROM users";
-				// $result = mysqli_query($db,$selectAll);
-
-				// while($row = mysqli_fetch_array($result)) {
-				// 	echo $row['UserID'] . " " . $row['onMailingList'] . " " . $row['employee']
-				// 		. " " . $row['givenName'] . " " . $row['surname'] . " " . $row['streetAddress'] . " " . $row['city']
-				// 		. " " . $row['state'] . " " . $row['zipCode'] . " " . $row['email'] . " " . $row['password']
-				// 		. " " . $row['telephone'];
-				// 	echo "<br>";
-				// }
-				// die (" ");
-
-				//die ($insertAllQuery);
 
 				mysqli_close($db);
 
