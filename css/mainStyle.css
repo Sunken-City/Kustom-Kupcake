@@ -47,8 +47,9 @@ h2{
     width: 172px;
 }
 
-#Flavorholder{
 
+.OptionTable{
+    margin:15px;
     border: 5px solid #F3F781;
     margin-right:auto;
     margin-left:auto;
@@ -56,10 +57,9 @@ h2{
     width:800px;
     height:160px;
     overflow:scroll;
-    background:white;
+    background:#F3F781;
 }
-#Flavor{
-
+.Tables{
     table-layout:fixed;
 }
 .submitButton{
@@ -71,18 +71,14 @@ h2{
 }
 
 
-#Flavor td {
+.Tables td{
     border: 1px solid black;
+    height:134px;
+    width:109px;
 }
 
-#toppings {
-    margin-right:auto;
-    margin-left:auto;	
-    display:block;
-    width: 500px;
-}
 #toppings * {
-	margin-right:auto;
+    margin-right:auto;
     margin-left:auto;
 }
 
@@ -101,7 +97,7 @@ img {
     margin-right:auto;
     margin-left:auto;	
     position:relative;
-    width: 1000px;
+    width: 800px;
 }
 
 #submitOrder{
@@ -122,6 +118,21 @@ img {
     width: 500px;
 
 }
+
+#toppings span{
+    margin:20px;
+    width: 30px;
+
+}
+
+#Favorites {
+    float:left;
+    width:100px;
+    height:650px;
+    display:block;
+    background-color:#F3F781;
+}
+
 
 .graphs {
     

@@ -10,16 +10,16 @@
 	</head>	
 
 	<body>
-		<div>
 			<table id="Favorites">
 				<caption> Favorites </caption>
 				<tbody>
 				</tbody>
 			</table>
-		</div>
-        <div>
-        		<nav id="Flavorholder">
-		<table id="Flavor">
+        
+	<div id="OptionsHolder">
+	<div>
+        		<nav id="Flavorholder" class="OptionTable">
+		<table id="Flavor" class="Tables">
 			<tbody>
 				<td name = "banana"> <img src="artwork/banana.PNG" alt="banana" class="FlavorClass"name = "banana">Banana </td>
 				<td> <img src="artwork/carrot.PNG" alt="carrot" class="FlavorClass"> Carrot </td>
@@ -37,10 +37,14 @@
 		</table>
                 </nav>
         </div>
-        <div>
-        	<nav id="Fillingholder">
-		<table id="Filling">
+        <div id="Fillingholder"  class="OptionTable">
+        	<nav>
+		<table id="Filling" class="Tables">
 			<tbody>
+				<td name = "caramel mudslide"> <img src="artwork/caramel_mudslide_frosting.png" alt="caramel mudslide" name = "caramel mudslide"> Caramel Mudslide</td>
+				<td name = "caramel mudslide"> <img src="artwork/caramel_mudslide_frosting.png" alt="caramel mudslide" name = "caramel mudslide"> Caramel Mudslide</td>
+				<td name = "caramel mudslide"> <img src="artwork/caramel_mudslide_frosting.png" alt="caramel mudslide" name = "caramel mudslide"> Caramel Mudslide</td>		
+				<td name = "caramel mudslide"> <img src="artwork/caramel_mudslide_frosting.png" alt="caramel mudslide" name = "caramel mudslide"> Caramel Mudslide</td>
 				<td name = "caramel mudslide"> <img src="artwork/caramel_mudslide_frosting.png" alt="caramel mudslide" name = "caramel mudslide"> Caramel Mudslide</td>
 			</tbody>
 		</table>
@@ -48,8 +52,8 @@
 		</div>
 
 		<div>
-			<nav id="Icingholder">
-		<table id="Icing">
+			<nav id="Icingholder"  class="OptionTable">
+		<table id="Icing" class="Tables">
 			<tbody>
 				<td></td>
 			</tbody>
@@ -59,19 +63,19 @@
 
 
 
-		<form id="cupcakesForm" name="cupcakesForm" action="CCAnalytics.html" method="POST">
-		<div id="toppings"><br>
-			<input type="checkbox" name = "sprinkles" value="Sprinkles">Sprinkles
-			<input type="checkbox" name = "bacon" value="Bacon">Bacon
-			<input type="checkbox" name = "m&ms" value="M&Ms">M&Ms
-			<input type="checkbox" name = "reeses" value="Reeses">Reeses Pieces<br>
-			<input type="checkbox" name = "skittles" value="Skittles">Skittles
-			<input type="checkbox" name = "minichocolatechips" value="MiniChocolateChips">Mini Chocolate Chips
-			<input type="checkbox" name = "oreo bits" value="Oreo Bits">Oreo Bits
-			<input type="checkbox" name = "twix bits" value="Twix Bits">Twix Bits<br>
-			<input type="checkbox" name = "butterfinger bits" value="Butterfinger Bits">Butterfinger Bits
-			<input type="checkbox" name = "snickers bits" value="Snicker Bits">Snicker Bits
-			<input type="checkbox" name = "mini marshmellows" value="Mini Marshmellows">Mini Marshmellows<br>
+		
+		<div id="toppings"  class="OptionTable">
+			<span><input type="checkbox" name = "sprinkles" value="Sprinkles">Sprinkles</span>
+			<span><input type="checkbox" name = "bacon" value="Bacon">Bacon</span>
+			<span><input type="checkbox" name = "m&ms" value="M&Ms">M&Ms</span>
+			<span><input type="checkbox" name = "reeses" value="Reeses">Reeses Pieces</span>
+			<span><input type="checkbox" name = "skittles" value="Skittles">Skittles</span>
+			<span><input type="checkbox" name = "minichocolatechips" value="MiniChocolateChips">Mini Chocolate Chips</span>
+			<span><input type="checkbox" name = "oreo bits" value="Oreo Bits">Oreo Bits</span>
+			<span><input type="checkbox" name = "twix bits" value="Twix Bits">Twix Bits</span>
+			<span><input type="checkbox" name = "butterfinger bits" value="Butterfinger Bits">Butterfinger Bits</span>
+			<span><input type="checkbox" name = "snickers bits" value="Snicker Bits">Snicker Bits</span>
+			<span><input type="checkbox" name = "mini marshmellows" value="Mini Marshmellows">Mini Marshmellows</span>
 
 			<input type = "button" id="checkAll" name="CheckAll" value="All Toppings"
 			onClick="checkAll(document.all)">
@@ -80,6 +84,7 @@
 			onClick="uncheckAll (document.all)">
 			<br>
 		</div>
+		
 		<div id="cupcakeOptions">
 			<input type ="button" id = "resetCupcake" name="ResetCupcake" value="Reset Cupcake">
 			<div id="quantity">
@@ -88,10 +93,12 @@
 			<input type ="button" id="updateOrder" name="UpdateOrder" value ="Update Order"
 			onClick = "updateOrder()">
 		</div>
+		
 		<div>
 			<input type="submit" id="submitOrder" name="analyticsSubmit" value = "Submit Order">
 		</div>
-		</form>
+	</div>
+		
 		<div id="shoppingCart">
 			<input type="button" id="deleteRow" name="deleteRow" value = "Delete Selected Rows">
 			<table id="cupcakeCart">
