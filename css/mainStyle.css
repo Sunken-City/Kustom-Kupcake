@@ -122,3 +122,28 @@ img {
     width: 500px;
 
 }
+
+.graphs {
+    
+    width:400px;
+    float:left;
+    margin:30px;
+
+
+}
+
+#BarGraph {
+    
+    float:none;
+    position:relative;
+    margin-right:auto;
+    margin-left:auto;	
+
+}
+.graphs p{
+    font-size:200%;
+    width:250px;
+    position:relative;
+    margin-right:auto;
+    margin-left:auto;	
+}
