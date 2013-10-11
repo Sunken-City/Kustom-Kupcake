@@ -15,8 +15,18 @@
 			#connect to the database: #
 			###########################
 			$authenticated = true;
-			$username = $_POST['username'];
-			$password = $_POST['password'];
+			$formData = array();
+
+			foreach($_POST as $key => $val) {
+
+				$formData[$key] = htmlentities($val,ENT_QUOTES,'UTF-8');
+
+				if (!isset($formData[$key])) {
+
+					break;
+				}
+
+			}
 
 			//die ($username . "&" . $password);
 

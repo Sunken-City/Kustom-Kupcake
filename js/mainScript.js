@@ -19,35 +19,49 @@ $(document).ready(function() {
 	|*|
 	\*/
 	
-	$("#logIn").submit(function(e) {
+	$("#logInButton").click(function(e) {
 		var username = $("#username").val();
 		var password = $("#password").val();
 		var pwdPattern = /.{8,}/g;
-		var success = false;
+
 
 		if( !password.match(pwdPattern) ) {
 			alert("Password is Invalid");
-			return false;
 		}
 
-		var datasend = 'username=' + username + '&' + 'password=' + password;
-		$.ajax({
-			type: "POST",
-			url: "php/logIn.php",
-			data: datasend,
-			success: function () {
-				success = true;
-			}
+		var formData = $("#logIn").serialize();
+
+		$.post("php/logIn.php",formData,function(data,status,xhr) {
+			window.location.href = "cupcakeordering.html";
+		})
+		.done(function() {
+    		//alert( "second success" );
+  		})
+  		.fail(function() {
+    		alert( "Password or Username Invalid!" );
+
+  		})
+  		.always(function() {
+    		//alert( "finished" );
 		});
 
-		if (success) {
-			return true;
-		}
-		else {
-			alert('Password or Username Invalid!');
-			return false;
-		}
-		event.preventDefault();
+		// $.ajax({
+		// 	type: "POST",
+		// 	url: "php/logIn.php",
+		// 	data: formData,
+		// 	success: function () {
+		// 		success = true;
+		// 		//$.ajax({ url:"php/redirect.php"});
+		// 		e.preventDefault();
+		// 	},
+		// 	failure: function() {
+		// 		alert("Password or Username Invalid!");
+		// 		e.preventDefault();
+		// 	}
+		// });
+
+		//action="php/redirect.php"
+		e.preventDefault();
 
 	});
 
