@@ -52,7 +52,7 @@
 
 
 
-		<form name="cupcakesForm" action="CCAnalytics.html" method="POST">
+		<form id="cupcakesForm" name="cupcakesForm" action="CCAnalytics.html" method="POST">
 		<div id="toppings"><br>
 			<input type="checkbox" name = "toppings" value="Sprinkles">Sprinkles
 			<input type="checkbox" name = "toppings" value="Bacon">Bacon
@@ -61,9 +61,9 @@
 			<input type="checkbox" name = "toppings" value="Skittles">Skittles
 			<input type="checkbox" name = "toppings" value="MiniChocolateChips">Mini Chocolate Chips
 			<input type="checkbox" name = "toppings" value="Oreo Bits">Oreo Bits
-			<input type="checkbox" name = "toppings" value="Twix Bits">Twix Bits
+			<input type="checkbox" name = "toppings" value="Twix Bits">Twix Bits<br>
 			<input type="checkbox" name = "toppings" value="Butterfinger Bits">Butterfinger Bits
-			<input type="checkbox" name = "toppings" value="Snicker Bits">Snicker Bits<br>
+			<input type="checkbox" name = "toppings" value="Snicker Bits">Snicker Bits
 			<input type="checkbox" name = "toppings" value="Mini Marshmellows">Mini Marshmellows<br>
 
 			<input type = "button" id="checkAll" name="CheckAll" value="All Toppings"
@@ -73,7 +73,7 @@
 			onClick="uncheckAll (document.all)">
 			<br>
 		</div>
-		<div>
+		<div id="cupcakeOptions">
 			<input type ="button" id = "resetCupcake" name="ResetCupcake" value="Reset Cupcake">
 			<div id="quantity">
 				<input id = "quantityCupcakes" type="number" min="0" max="99999"/>
