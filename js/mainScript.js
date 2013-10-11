@@ -32,14 +32,21 @@ $(document).ready(function() {
 		var formData = $("#logIn").serialize();
 
 		$.post("php/logIn.php",formData,function(data,status,xhr) {
-			window.location.href = "php/redirect.php";
-		})
+			//window.location.href = "php/redirect.php";
+			if(data['success']) {
+            	// do successful things
+            	window.location.href = "php/redirect.php";
+        	}
+        	else {
+            	// do failure things
+            	alert(data);
+        	}
+		},json)
 		.done(function() {
     		//alert( "second success" );
   		})
   		.fail(function() {
     		alert( "Password or Username Invalid!" );
-    		e.preventDefault();
   		})
   		.always(function() {
     		//alert( "finished" );

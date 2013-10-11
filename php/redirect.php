@@ -11,7 +11,7 @@
 	<body>
 
 		<?php
-			//54.200.82.84/
+			//54.200.82.84
 			header("Location: http://Kustom-Kupcake/php/cupcakeOrdering.php");
 
 		?>
