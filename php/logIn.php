@@ -28,19 +28,19 @@
 			#Check user credentials against known users: Query database#
 			############################################################
 
-			// $requestString = "SELECT email,password FROM users WHERE (email = '$formData['Email']' && password = '$formData['user']')";
+			$requestString = "select email,password from users where(email = 'a@a.a' && password = 'abcdefghijklmn')";
 
-			// $request = mysqli_query($db,$requestString);
+			$request = mysqli_query($db,$requestString);
 
-			// if (mysqli_num_rows($request) == 0) {
-			// 	$authenticated = false;
-			// }
+			if (mysqli_num_rows($request) == 0) {
+				$authenticated = false;
+			}
 
 			mysql_close($con);
 
-			$postData = array('success' => false);
+			$postData = array('success' => $authenticated);
 
 			//header("js/mainScript.js");
-			die (json_encode($postData));
+			echo json_encode($postData);
 
 		?>
