@@ -55,6 +55,10 @@
 
 				$frow = mysqli_fetch_array($getMaxID);
 
+				if ($frow['max(UserID)'] == null) {
+					$frow['max(UserID)'] = 0;
+				}
+
 				$id = intval($frow['max(UserID)']);
 
 				#	$formData format: 		::		database columns:	
@@ -69,7 +73,7 @@
 				#	[8] = states 			::	zipCode
 				#	[9] = zip 				::	email
 				
-				$id++;
+				$id = $id + 1;
 				$onMailingList = "no";
 				$employee = "no";
 				$givenName = $formData['fname'];
