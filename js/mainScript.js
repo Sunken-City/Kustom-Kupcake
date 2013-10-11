@@ -32,7 +32,7 @@ $(document).ready(function() {
 		var formData = $("#logIn").serialize();
 
 		$.post("php/logIn.php",formData,function(data,status,xhr) {
-			window.location.href = "cupcakeordering.html";
+			window.location.href = "php/redirect.php";
 		})
 		.done(function() {
     		//alert( "second success" );

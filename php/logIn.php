@@ -40,6 +40,8 @@
 			#Check user credentials against known users: Query database#
 			############################################################
 
+			$requestString = "SELECT email,password FROM users WHERE (";
+
 			mysql_close($con);
 
 		?>
