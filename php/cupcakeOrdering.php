@@ -34,12 +34,13 @@
 					<tbody>";
 			while($row = mysqli_fetch_assoc($result)) {
 
-				$pic = $row["rgbVal"];
+				$rgbVal = $row["rgbVal"];
 				$filling = $row["fillingName"];
 				//do something with the pic and filling??//
 				echo "
 				
 					<td name=$filling>
+					<td bgcolor=$rgbVal>
 						 $filling
 					</td>";
 
