@@ -12,39 +12,56 @@
 			}
 
 			$result = mysqli_query($db,"SELECT * FROM flavor");
-
+			echo "<table>
+					<tbody>";
 			while($row = mysqli_fetch_assoc($result)) {
 
 				$pic = $row["picLoc"];
 				$flavor = $row["flavorName"];
 				//do something with the pic and flavor??//
-				echo "picLoc: " . $pic . " & flavorName: " . $flavor;
-				echo "<br>";
-			}
+				echo "
+				
+					<td name=$flavor>
+						<img src="artwork/$pic" alt=$flavor> $flavor
+					</td>";
+
+				}echo "</tbody></table>";
 
 
 			$result = mysqli_query($db,"SELECT * FROM filling");
 			echo "<br>";
-
+			echo "<table>
+					<tbody>";
 			while($row = mysqli_fetch_assoc($result)) {
 
 				$pic = $row["rgbVal"];
 				$filling = $row["fillingName"];
 				//do something with the pic and filling??//
-				echo "rgbVal: " . $pic . " & fillingName: " . $filling;
-				echo "<br>";
-			}
+				echo "
+				
+					<td name=$filling>
+						<img src="artwork/$pic" alt=$filling> $filling
+					</td>";
+
+				}echo "</tbody> </table>";
+
 
 			$result = mysqli_query($db,"SELECT * FROM icing");
 			echo "<br>";
-
+			echo "<table>
+					<tbody>";
 			while($row = mysqli_fetch_assoc($result)){
 				$pic = $row["picLoc"];
 				$icing = $row["icingName"];
 				//do something with the pic and filling??//
-				echo "picLoc: " . $pic . " & icingName: " . $icing;
-				echo "<br>";
-			}
+				echo "
+				
+					<td name=$icing>
+					<img src="artwork/$pic" alt=$icing> $icing
+					</td>";
+
+				}echo "</tbody> </table>";
+
 			die("Get rid of this die after you test this page if not sooner");
 		?>
 	<body>
