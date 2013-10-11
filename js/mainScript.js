@@ -2,7 +2,7 @@
 //Scripts to run in concert with index.html
 
 $(document).ready(function() {
-	alert("Page Loaded");
+	//alert("Page Loaded");
 
 	/*\
 	|*|				:: >> Authenticate User After Login << ::
@@ -21,24 +21,29 @@ $(document).ready(function() {
 	
 	$("#logInButton").click(function(e) {
 		var username = $("#username").val();
-		var password = $("#pwd").val();
+		var password = $("#password").val();
 		var pwdPattern = /.{8,}/g;
 
 		if( !password.match(pwdPattern) ) {
 			alert("Password is Invalid");
 			return false;
 		}
-		var dataString = 'username='+ username + '&password=' + password;
+
+		var datasend = 'username=' + username + '&' + 'password=' + password};
 
 		$.ajax({
 			type: "POST",
 			url: "php/logIn.php",
-			data: dataString,
+			data: datasend,
 			success: function () {
+				alert('success');
 				$.ajax({ url: 'php/redirect.php' });
 			}
+			failure: function() {
+				alert('Password or Username Invalid!');
+			}
 		});
-		alert("Username or password is incorrect!");
+
 		return false;
 
 	});

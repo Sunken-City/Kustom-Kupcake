@@ -63,7 +63,10 @@
 			#######################################################
 			if ($submission) {
 				# Redirect to
+				session_start();
+				$_SESSION['uname'] = $name;	
 	    		include 'redirect.php';
+
 			} else {
 				die ("I don't know what you did, but it was a mistake. Go back and do not return here!");
 			}

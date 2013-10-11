@@ -14,25 +14,24 @@
 			###########################
 			#connect to the database: #
 			###########################
-			$con = mysql_connect("localhost","cupcaker","nomnomnom");
+			$authenticated = true;
+			//$username = $_POST['username'];
+			//$password = $_POST['password'];
 
-			if (!$con) {
+			//die ($username . "&" . $password);
 
-				die('Could not connect: ' . mysql_error());
+			$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
+
+			if (mysqli_connect_errno()) {
+				printf("Connect failed: %s\n", mysqli_connect_errno());
+				exit();
 			}
-
-			mysql_select_db("customcupcakes",$con) or die("Unable to select database:" . mysql_error());
 			############################################################
 			#Check user credentials against known users: Query database#
 			############################################################
 
-			
-
-			
-			function authenticate($formData) {
-				$authenticated = true;
-
-				return $authenticated;
+			if($authenticated) {
+				include 'redirect.php';
 			}
 
 			mysql_close($con);
