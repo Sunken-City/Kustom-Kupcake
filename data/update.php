@@ -11,13 +11,14 @@ function importDataToDB()
   
   $result = json_decode($json, TRUE);
   $i = 0;
-  //foreach($result as $value) 
+  $cake = $result['menu']['cakes'];
+  foreach($cake as $value) 
   {
 	  //mysql_query
 	  echo("INSERT INTO flavor (flavorID, flavorName, picLoc) VALUES (".$i."," 
-	  .$result['menu']['cakes'][$i]['flavor']."," 
-	  .$result['menu']['cakes'][$i]['img_url'].")");
-	  $i++;
+	  .$value['flavor']."," 
+	  .$value['img_url'].")"."</br>");
+	  $i = $i + 1;
   //mysql_close($con);
   }
   /*include 'simplexlsx.class.php';
