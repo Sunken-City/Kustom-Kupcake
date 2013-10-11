@@ -106,6 +106,25 @@ $(document).ready(function() {
 
 	}
 
+	$("#deleteRow").click(function(e){
+		try{
+			var table = document.getElementById("cupcakeCart");
+			var rowCount = table.rows.length;
+
+			for(var i=0; i<rowCount; i++){
+				var row = table.rows[i];
+				var chkbox = row.cells[0].childNodes[0];
+				if(null != chkbox && true == chkbox.checked) {
+					table.deleteRow(i);
+					rowCount--;
+					i--;
+				}
+			}
+		}catch(e) {
+			alert(e);
+		}
+	});
+
 	$("#submitOrderButton").click(function(e) {
 		//ajax call to the database with all the analytics
 	});
@@ -125,23 +144,64 @@ $(document).ready(function() {
 	})
 	
 	$("#updateOrder").click(function(e){
-		var flavorElement 
-		var filling = document.getElementById('Filling').getElementsByClassName('selected');
-		var icing = document.getElementById('Icing').getElementsByClassName('selected');
-		var toppings = []
+
+		var temps = [];
+		var flavor;
+		var filling;
+		var icing;
+		var quantity;
+
+		$("#Flavor").find(".selected").each(function(){
+				temps.push($(this).attr('name'));
+		});
+
+		for(var i = 0; i < temps.length; i++){
+			flavor = temps[i];
+		}
+		temps = [];
+		$("#Filling").find(".selected").each(function(){
+				temps.push($(this).attr('name'));
+		});
+
+		for(var i = 0; i < temps.length; i++){
+			filling = temps[i];
+		}
+		temps = [];
+		$("#Icing").find(".selected").each(function(){
+				temps.push($(this).attr('name'));
+		});
+
+		for(var i = 0; i < temps.length; i++){
+			icing = temps[i];
+		}
+
+		var toppings = [];
 
 		$('input:checked').each(function(){
-			toppings.push($(this).attr("name") + this.id);
+			toppings.push($(this).attr("name"));
 		})
 
+		quantity = document.getElementById('quantityCupcakes').value;
+
+		var table = document.getElementById('cupcakeCart');
+		var rowCount = table.rows.length;
+		var row = table.insertRow(rowCount);
+
+		var cell1 = row.insertCell(0);
+		var element1=document.createElement("input");
+		element1.type="checkbox";
+		element1.name="chkbox[]";
+		cell1.appendChild(element1);
+
+		var cell2 = row.insertCell(1);
+		cell2.innerHTML = quantity;
+
+		var cell3 = row.insertCell(2);
+		cell3.innerHTML = flavor + ", " + filling + ", " + icing + ", " + toppings;
 		var newCupcake = cupcake(flavor, filling, icing, toppings);
-		document.write(flavor,filling,icing,toppings);
-		shoppingCart.push(newCupcake);
-	})
-	$("#submitOrder").click(function(e) {
 
 	})
-	
+
 	function cupcake(newFlavor,newFilling,newIcing,newToppings){
 		var that=this;
 		this.flavor=newFlavor;
