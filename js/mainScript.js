@@ -25,9 +25,9 @@ $(document).ready(function() {
 		var pwdPattern = /.{8,}/g;
 
 
-		if( !password.match(pwdPattern) ) {
-			alert("Password is Invalid");
-		}
+		// if( !password.match(pwdPattern) ) {
+		// 	alert("Password is Invalid");
+		// }
 
 		var formData = $("#logIn").serialize();
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
   		})
   		.fail(function() {
     		alert( "Password or Username Invalid!" );
-
+    		e.preventDefault();
   		})
   		.always(function() {
     		//alert( "finished" );
