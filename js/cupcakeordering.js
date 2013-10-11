@@ -12,19 +12,16 @@ $(document).ready(function() {
 	var checkBoxesButton = document.getElementById('checkAll');
 	var uncheckBoxesButton = document.getElementById('uncheckAll');
 	var resetCupcake = document.getElementById('resetCupcake');
-
+	var shoppingCart = [];
 	uncheckBoxesButton.onclick=uncheckAllBoxes;
 	checkBoxesButton.onclick=checkAllBoxes;
 	resetCupcake.onclick=resetCupcake;
 
-<<<<<<< HEAD
 	$.ajax({
 			type: "POST",
 			url: "php/cupcakeOrdering.php"
 	});
 
-=======
->>>>>>> 17ff4c25c5a29b6ab0bfd591c61477e4c62cce80
 	function selectFlavor(e){
 
 		var flavors=document.getElementById('Flavor').getElementsByTagName('td');
@@ -127,22 +124,34 @@ $(document).ready(function() {
 		}
 	})
 	
-<<<<<<< HEAD
 	$("#updateOrder").click(function(e){
-		var flavor = document.getElementById('Flavor').getElementsByClassName('selected');
+		var flavorElement 
 		var filling = document.getElementById('Filling').getElementsByClassName('selected');
-		var filling = document.getElementById('Icing').getElementsByClassName('selected');
+		var icing = document.getElementById('Icing').getElementsByClassName('selected');
+		var toppings = []
 
 		$('input:checked').each(function(){
 			toppings.push($(this).attr("name") + this.id);
 		})
+
+		var newCupcake = cupcake(flavor, filling, icing, toppings);
+		document.write(flavor,filling,icing,toppings);
+		shoppingCart.push(newCupcake);
 	})
 	$("#submitOrder").click(function(e) {
 
 	})
-	{}
-});
-=======
+	
+	function cupcake(newFlavor,newFilling,newIcing,newToppings){
+		var that=this;
+		this.flavor=newFlavor;
+		this.filling=newFilling;
+		this.icing=newIcing;
+		this.toppings=newToppings;
+
+		this.toString=function(){
+			return 'Cupcake Creation: ' +that.flavor+', ' +that.filling+', '+that.icing+', '+that.topping;
+		};
+	}
 });
 
->>>>>>> 17ff4c25c5a29b6ab0bfd591c61477e4c62cce80
