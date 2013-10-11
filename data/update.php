@@ -12,12 +12,44 @@ function importDataToDB()
   $result = json_decode($json, TRUE);
   $i = 0;
   $cake = $result['menu']['cakes'];
+  $frosting = $result['menu']['frosting'];
+  $fillings = $result['menu']['fillings'];
+  $toppings = $result['menu']['Toppings'];
   foreach($cake as $value) 
   {
 	  //mysql_query
-	  echo("INSERT INTO flavor (flavorID, flavorName, picLoc) VALUES (".$i."," 
-	  .$value['flavor']."," 
-	  .$value['img_url'].")"."</br>");
+	  echo("INSERT INTO flavor (flavorID, flavorName, picLoc) VALUES (".$i.",\"" 
+	  .$value['flavor']."\",\"" 
+	  .$value['img_url']."\");"."</br>");
+	  $i = $i + 1;
+  //mysql_close($con);
+  }
+  $i = 0;
+  foreach($frosting as $value) 
+  {
+	  //mysql_query
+	  echo("INSERT INTO icing (icingID, icingName, picLoc) VALUES (".$i.",\"" 
+	  .$value['flavor']."\",\"" 
+	  .$value['img_url']."\");"."</br>");
+	  $i = $i + 1;
+  //mysql_close($con);
+  }
+  $i = 0;
+  foreach($fillings as $value) 
+  {
+	  //mysql_query
+	  echo("INSERT INTO filling (fillingID, fillingName, rgb) VALUES (".$i.",\"" 
+	  .$value['flavor']."\",\"" 
+	  .$value['rgb']."\");"."</br>");
+	  $i = $i + 1;
+  //mysql_close($con);
+  }
+  $i = 0;
+  foreach($toppings as $value) 
+  {
+	  //mysql_query
+	  echo("INSERT INTO toppings (toppingID, toppingName) VALUES (".$i.",\"" 
+	  .$value."\");"."</br>");
 	  $i = $i + 1;
   //mysql_close($con);
   }
