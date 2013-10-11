@@ -14,7 +14,7 @@
         		<nav id="Flavorholder">
 		<table id="Flavor">
 			<tbody>
-				<td> <img src="artwork/banana.PNG" alt="banana" class="FlavorClass">Banana </td>
+				<td name = "banana"> <img src="artwork/banana.PNG" alt="banana" class="FlavorClass">Banana </td>
 				<td> <img src="artwork/carrot.PNG" alt="carrot" class="FlavorClass"> Carrot </td>
 				<td> <img src="artwork/chocolate.PNG" alt="dark chocolate" class="FlavorClass"> Chocolate </td>
 				<td> <img src="artwork/coconut.PNG" alt="coconut" class="FlavorClass"> Coconut </td>
@@ -78,11 +78,11 @@
 			<div id="quantity">
 				<input id = "quantityCupcakes" type="number" min="0" max="99999"/>
 			</div>
-			<input type ="button" name="UpdateOrder" value ="Update Order"
+			<input type ="button" id="updateOrder" name="UpdateOrder" value ="Update Order"
 			onClick = "updateOrder()">
 		</div>
 		<div>
-			<input type="submit" name="analyticsSubmit" value = "Submit Order" id="submitOrderButton">
+			<input type="submit" id="submitOrder" name="analyticsSubmit" value = "Submit Order">
 		</div>
 		</form>
 	</body>
