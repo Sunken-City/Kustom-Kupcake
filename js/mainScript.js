@@ -19,32 +19,35 @@ $(document).ready(function() {
 	|*|
 	\*/
 	
-	$("#logInButton").click(function(e) {
+	$("#logIn").submit(function(e) {
 		var username = $("#username").val();
 		var password = $("#password").val();
 		var pwdPattern = /.{8,}/g;
+		var success = false;
 
 		if( !password.match(pwdPattern) ) {
 			alert("Password is Invalid");
 			return false;
 		}
 
-		var datasend = 'username=' + username + '&' + 'password=' + password};
-
+		var datasend = 'username=' + username + '&' + 'password=' + password;
 		$.ajax({
 			type: "POST",
 			url: "php/logIn.php",
 			data: datasend,
 			success: function () {
-				alert('success');
-				$.ajax({ url: 'php/redirect.php' });
-			}
-			failure: function() {
-				alert('Password or Username Invalid!');
+				success = true;
 			}
 		});
 
-		return false;
+		if (success) {
+			return true;
+		}
+		else {
+			alert('Password or Username Invalid!');
+			return false;
+		}
+		event.preventDefault();
 
 	});
 

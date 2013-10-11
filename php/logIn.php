@@ -15,8 +15,8 @@
 			#connect to the database: #
 			###########################
 			$authenticated = true;
-			//$username = $_POST['username'];
-			//$password = $_POST['password'];
+			$username = $_POST['username'];
+			$password = $_POST['password'];
 
 			//die ($username . "&" . $password);
 
@@ -29,10 +29,6 @@
 			############################################################
 			#Check user credentials against known users: Query database#
 			############################################################
-
-			if($authenticated) {
-				include 'redirect.php';
-			}
 
 			mysql_close($con);
 
