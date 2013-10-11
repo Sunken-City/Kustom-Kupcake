@@ -33,9 +33,10 @@ CREATE TABLE flavor (
 CREATE TABLE cupcakes (
    flavorID int NOT NULL,
    cupcakeID int NOT NULL,
-   cost int NOT NULL,
+   cost int,
    PRIMARY KEY(cupcakeID),
    CONSTRAINT FOREIGN KEY(flavorID) REFERENCES flavor(flavorID)
+      on update cascade
 ) engine = innodb;
 
 CREATE TABLE topping (
@@ -50,8 +51,10 @@ CREATE TABLE toppingBridge (
    toppingID int NOT NULL,
    bridgeID int NOT NULL,
    PRIMARY KEY(bridgeID),
-   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID),
+   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID)
+      on update cascade,
    CONSTRAINT FOREIGN KEY(toppingID) REFERENCES topping(toppingID)
+      on update cascade
 ) engine = innodb;
 
 CREATE TABLE filling (
@@ -78,10 +81,14 @@ CREATE TABLE purchases (
    icingID int NOT NULL,
    email varchar(50) NOT NULL,
    PRIMARY KEY(purchaseID, cupcakeID, email),
-   CONSTRAINT FOREIGN KEY(email) REFERENCES users(email),
-   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID),
-   CONSTRAINT FOREIGN KEY(fillingID) REFERENCES filling(fillingID),
+   CONSTRAINT FOREIGN KEY(email) REFERENCES users(email)
+      on update cascade,
+   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID)
+      on update cascade,
+   CONSTRAINT FOREIGN KEY(fillingID) REFERENCES filling(fillingID)
+      on update cascade,
    CONSTRAINT FOREIGN KEY(icingID) REFERENCES icing(icingID)
+      on update cascade
 ) engine = innodb;
 
 CREATE TABLE favorites (
@@ -92,13 +99,19 @@ CREATE TABLE favorites (
    fillingID int NOT NULL,
    icingID int NOT NULL,
    PRIMARY KEY(cupcakeID, email),
-   CONSTRAINT FOREIGN KEY(email) REFERENCES users(email),
-   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID),
-   CONSTRAINT FOREIGN KEY(fillingID) REFERENCES filling(fillingID),
+   CONSTRAINT FOREIGN KEY(email) REFERENCES users(email)
+      on update cascade,
+   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID)
+      on update cascade,
+   CONSTRAINT FOREIGN KEY(fillingID) REFERENCES filling(fillingID)
+      on update cascade,
    CONSTRAINT FOREIGN KEY(icingID) REFERENCES icing(icingID)
+      on update cascade
 ) engine = innodb;
 
+load data local infile '/home/joe/Kustom-Kupcake/data/CustomCupcakesDBData-Users.csv' into table users fields terminated by ',' optionally enclosed by '"' lines terminated by '\n' (UserID, onMailingList, givenName, surname, streetAddress, city, state, zipCode, email, password, telephone);
 
+#load data local infile '/home/joe/Kustom-Kupcake/data/CustomCupcakesDBData-ToppingsBridge.csv' into #table toppingBridge fields terminated by ',' lines terminated by '\n' (bridgeID, cupcakeID, #toppingID);
 
 
 
