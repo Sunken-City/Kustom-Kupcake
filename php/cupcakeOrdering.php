@@ -30,23 +30,23 @@
 
 	$email = $_SESSION['uname'];
 
-	$getUserIDQuery = "SELECT userID FROM users WHERE(email = '$email')"; 
-	$getFlavorID = "SELECT flavorID FROM flavor WHERE(flavorName = '$flavor')";
-	$getFillingID = "SELECT fillingID FROM filling WHERE (fillingName = '$filling')";
-	$getIcingID = "SELECT icingID FROM icing WHERE (icingName = '$icing')";
+	$getUserIDQuery = "SELECT userID FROM users WHERE(email = '$email');"; 
+	$getFlavorID = "SELECT flavorID FROM flavor WHERE(flavorName = '$flavor');";
+	$getFillingID = "SELECT fillingID FROM filling WHERE (fillingName = '$filling');";
+	$getIcingID = "SELECT icingID FROM icing WHERE (icingName = '$icing');";
 
-	$rgrow = mysqli_fetch_array($getFlavorID);
-	$hgrow = mysqli_fetch_array($getFillingID);
-	$ugrow = mysqli_fetch_array($getIcingID);
-	$grow = mysqli_fetch_array($getUserIDQuery);
+	$flav = mysqli_fetch_array($getFlavorID);
+	$fil = mysqli_fetch_array($getFillingID);
+	$ic = mysqli_fetch_array($getIcingID);
+	$u = mysqli_fetch_array($getUserIDQuery);
 
-	$uID = intval($grow['userID']);
-	$iceID = intval($ugrow['icingID']);
-	$fillID = intval($hgrow['fillingID']);
-	$cakeID = intval($rgrow['flavorID']);
+	$uID = intval($u['userID']);
+	$iceID = intval($ic['icingID']);
+	$fillID = intval($fil['fillingID']);
+	$cakeID = intval($flav['flavorID']);
 
 	$insertAllQuery = "INSERT INTO purchases (purchaseID,quantity,cupcakeID,fillingID,icingID,userID)
-			 VALUES ('$id', '$quantity', '$cakeID', '$fillID', '$iceID', '$uID')";
+			 VALUES ('$id', '$quantity', '$cakeID', '$fillID', '$iceID', '$uID');";
 	mysqli_query($db,$insertAllQuery);
 
 	if (!mysqli_query($db,$insertAllQuery)) {
