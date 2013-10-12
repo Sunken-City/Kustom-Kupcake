@@ -28,7 +28,7 @@
 	
 	$id = $id + 1;
 
-	$email = $_SESSION['uname'];
+	//$email = $_SESSION['uname'];
 
 	$getUserIDQuery = "SELECT userID FROM users WHERE(email = '$email');"; 
 	$getFlavorID = "SELECT flavorID FROM flavor WHERE(flavorName = '$flavor');";
