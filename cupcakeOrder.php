@@ -14,6 +14,7 @@
 				<caption> Favorites </caption>
 				<tbody>
 					<?php
+					/*
 						$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
 
 						if (mysqli_connect_errno()) {
@@ -51,7 +52,9 @@
 
 
 				}
+				*/
 					?>
+					
 				</tbody>
 			</table>
         
