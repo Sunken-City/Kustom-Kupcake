@@ -91,4 +91,51 @@
 
 		return $submitted;
 	}
+
+	function populateFlavorTable()
+	{
+			$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
+
+			if (mysqli_connect_errno()) {
+				printf("Connect failed: %s\n", mysqli_connect_errno());
+				exit();
+			}
+
+			$result = mysqli_query($db,"SELECT * FROM flavor");
+
+			while($row = mysqli_fetch_assoc($result)) {
+
+
+				//do something with the pic and flavor??//
+				}
+
+
+
+	}
+
+	function populateFillingTable()
+	{
+		$result = mysqli_query($db,"SELECT * FROM filling");
+			while($row = mysqli_fetch_assoc($result)) {
+
+				$rgbVal = $row["rgbVal"];
+				$filling = $row["fillingName"];
+				//do something with the pic and filling??//
+				}
+	}
+
+	function populateIcingTable()
+	{
+		$result = mysqli_query($db,"SELECT * FROM icing");
+			while($row = mysqli_fetch_assoc($result)){
+				$pic = $row["picLoc"];
+				$icing = $row["icingName"];
+				//do something with the pic and filling??//
+				}
+				
+	}
+
+	function populateToppingTable(){
+		
+	}
 ?>
