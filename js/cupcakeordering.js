@@ -110,10 +110,13 @@ $(document).ready(function() {
 			var table = document.getElementById("cupcakeCart");
 			var rowCount = table.rows.length;
 
+
 			for(var i=0; i<rowCount; i++){
 				var row = table.rows[i];
 				var chkbox = row.cells[0].childNodes[0];
 				if(null != chkbox && true == chkbox.checked) {
+					var index = shoppingCart.arrayOf(i);
+					array.splice(index,1);
 					table.deleteRow(i);
 					rowCount--;
 					i--;
@@ -122,10 +125,6 @@ $(document).ready(function() {
 		}catch(e) {
 			alert(e);
 		}
-	});
-
-	$("#submitOrderButton").click(function(e) {
-		//ajax call to the database with all the analytics
 	});
 
 	$("#resetCupcake").click(function(e) {
@@ -194,23 +193,49 @@ $(document).ready(function() {
 
 		var cell2 = row.insertCell(1);
 		cell2.innerHTML = quantity;
+		cell2.setAttribute('class','quantity');
 
 		var cell3 = row.insertCell(2);
 		cell3.innerHTML = flavor + ", " + filling + ", " + icing + ", " + toppings;
-		var newCupcake = cupcake(flavor, filling, icing, toppings);
+		cell3.setAttribute('class','cupcake');
+		var newCupcake = new cupcake(quantity,flavor, filling, icing, toppings);
+		shoppingCart.push(newCupcake);
 
 	})
 
-	function cupcake(newFlavor,newFilling,newIcing,newToppings){
+	function cupcake(quantity,newFlavor,newFilling,newIcing,newToppings){
 		var that=this;
-		this.flavor=newFlavor;
-		this.filling=newFilling;
-		this.icing=newIcing;
-		this.toppings=newToppings;
+		this.quantity = quantity;
+		this.flavor = newFlavor;
+		this.filling = newFilling;
+		this.icing = newIcing;
+		this.toppings = newToppings;
 
-		this.toString=function(){
-			return 'Cupcake Creation: ' +that.flavor+', ' +that.filling+', '+that.icing+', '+that.topping;
-		};
+		// this.toString=function(){
+		// 	return 'Cupcake Creation: ' +that.flavor+', ' +that.filling+', '+that.icing+', '+that.topping;
+		// };
 	}
+
+	$("#submitOrder").click(function(e) {
+		//ajax call to the database with all the analytics
+
+		for (var i = 0; len = shoppingCart.lenght; i < len; i++) {
+
+			$formData = shoppingCart[i];
+
+			$.post("php/API.php",formData,function(data){
+
+				if(data['success']) {
+	            	// do successful things
+	            	window.location.href = "php/redirect2.php";
+	        	}
+	        	else {
+	            	// do failure things
+	            	alert("Username or Password is Invalid!");
+	        	}
+			},"json");
+		}
+	});
+
 });
 

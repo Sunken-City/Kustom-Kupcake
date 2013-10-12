@@ -114,7 +114,7 @@
 				}
 
 			$result = mysqli_query($db,"SELECT * FROM topping");
-			
+
 			while($row = mysqli_fetch_assoc($result)){
 				$name = $row["toppingName"];
 				//do something with the pic and filling??//
@@ -139,7 +139,7 @@
 				<input id = "quantityCupcakes" type="number" min="0" max="99999"/>
 			</div>
 			<input type ="button" id="updateOrder" name="UpdateOrder" value ="Update Order"
-			onClick = "updateOrder()">
+			>
 		</div>
 		
 		<div>
