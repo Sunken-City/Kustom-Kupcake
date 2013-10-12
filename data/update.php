@@ -11,7 +11,7 @@ function importDataToDB()
   
   $result = json_decode($json, TRUE);
   
-  $i = 0;
+  $i = 1;
   $cake = $result['menu']['cakes'];
   $frosting = $result['menu']['frosting'];
   $fillings = $result['menu']['fillings'];
@@ -23,7 +23,7 @@ function importDataToDB()
 	  .$value['img_url']."\");");
 	  $i = $i + 1;
   }
-  $i = 0;
+  $i = 1;
   foreach($frosting as $value) 
   {
 	  mysql_query("INSERT INTO icing (icingID, icingName, picLoc) VALUES (".$i.",\"" 
@@ -31,7 +31,7 @@ function importDataToDB()
 	  .$value['img_url']."\");");
 	  $i = $i + 1;
   }
-  $i = 0;
+  $i = 1;
   foreach($fillings as $value) 
   {
 	  mysql_query("INSERT INTO filling (fillingID, fillingName, rgbVal) VALUES (".$i.",\"" 
@@ -39,7 +39,7 @@ function importDataToDB()
 	  .$value['rgb']."\");");
 	  $i = $i + 1;
   }
-  $i = 0;
+  $i = 1;
   foreach($toppings as $value) 
   {
 	  mysql_query("INSERT INTO topping (toppingID, toppingName) VALUES (".$i.",\"" 
