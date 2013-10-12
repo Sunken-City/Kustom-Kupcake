@@ -1,8 +1,4 @@
 <?php
-
-?>
-
-<?php
 	include 'API.php';
 
 	$quantity = $_POST['quantity'];
@@ -34,6 +30,7 @@
 
 	$insertAllQuery = "INSERT INTO purchases (purchaseID,quantity,cupcakeID,fillingID,icingID,userID)
 			 VALUES ('123', '1', '1', '1', '1','121')";
+	mysqli_query($db,$insertAllQuery);
 
 	if (!mysqli_query($db,$insertAllQuery)) {
 		echo "There was an error processing your request. Please return to the previous page. Here's the error if you wanted to know:\n";
