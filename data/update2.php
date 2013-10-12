@@ -16,6 +16,7 @@ function importDataToDB()
   
   mysql_query($sql);
    
+  mysql_query("load data local infile '/var/www/Kustom-Kupcake/data/CustomCupcakesDBData-FavoriteCupcakes.csv' into table favorites fields terminated by ',' lines terminated by '\n' ignore 1 lines (FavoriteID, UserID, flavorID, icingID, fillingID)");
   
   mysql_query("load data local infile '/var/www/Kustom-Kupcake/data/CustomCupcakesDBData-ToppingsBridge.csv' into table toppingBridge fields terminated by ',' lines terminated by '\n' ignore 1 lines (bridgeID, cupcakeID, toppingID);");
   
