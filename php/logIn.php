@@ -34,6 +34,8 @@
 
 			$request = mysqli_query($db,$requestString);
 
+			$requestAsArray = mysqli_fetch_array($request);
+
 			if (mysqli_num_rows($request) == 0) {
 				$authenticated = false;
 			}	

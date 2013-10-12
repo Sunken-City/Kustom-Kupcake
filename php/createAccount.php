@@ -13,7 +13,7 @@
 
 		<?php
 
-			include 'createAccountDB.php';
+			include 'API.php';
 			
 			$submission = true; #if successful submission of the form
 			$formData = array(); #an array to house the submitted from data
