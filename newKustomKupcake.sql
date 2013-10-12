@@ -19,8 +19,8 @@ CREATE TABLE users (
    email varchar(50) NOT NULL,
    password varchar(50) NOT NULL,
    telephone int NOT NULL,
-   PRIMARY KEY(email),
-   UNIQUE KEY(UserID)   
+   PRIMARY KEY(UserID),
+   UNIQUE KEY (email)   
 ) engine = innodb;
 
 CREATE TABLE flavor (
@@ -30,31 +30,11 @@ CREATE TABLE flavor (
    PRIMARY KEY(flavorID)
 ) engine = innodb;
 
-CREATE TABLE cupcakes (
-   flavorID int NOT NULL,
-   cupcakeID int NOT NULL,
-   cost int,
-   PRIMARY KEY(cupcakeID),
-   CONSTRAINT FOREIGN KEY(flavorID) REFERENCES flavor(flavorID)
-      on update cascade
-) engine = innodb;
-
 CREATE TABLE topping (
    toppingID int NOT NULL,
    toppingName varchar(50) NOT NULL,
    PRIMARY KEY(toppingID),
    UNIQUE KEY(toppingName)
-) engine = innodb;
-
-CREATE TABLE toppingBridge (
-   cupcakeID int NOT NULL,
-   toppingID int NOT NULL,
-   bridgeID int NOT NULL,
-   PRIMARY KEY(bridgeID),
-   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID)
-      on update cascade,
-   CONSTRAINT FOREIGN KEY(toppingID) REFERENCES topping(toppingID)
-      on update cascade
 ) engine = innodb;
 
 CREATE TABLE filling (
@@ -79,11 +59,11 @@ CREATE TABLE purchases (
    cupcakeID int NOT NULL,
    fillingID int NOT NULL,
    icingID int NOT NULL,
-   email varchar(50) NOT NULL,
-   PRIMARY KEY(purchaseID, cupcakeID, email),
-   CONSTRAINT FOREIGN KEY(email) REFERENCES users(email)
+   UserID int NOT NULL,
+   UNIQUE KEY(purchaseID, cupcakeID, UserID),
+   CONSTRAINT FOREIGN KEY(UserID) REFERENCES users(UserID)
       on update cascade,
-   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID)
+   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES flavor(flavorID)
       on update cascade,
    CONSTRAINT FOREIGN KEY(fillingID) REFERENCES filling(fillingID)
       on update cascade,
@@ -93,19 +73,31 @@ CREATE TABLE purchases (
 
 CREATE TABLE favorites (
    favoriteID int NOT NULL,
-   email varchar(50) NOT NULL,
+   userID int NOT NULL,
    cupcakeName varchar(20) NOT NULL,
    cupcakeID int NOT NULL,
    fillingID int NOT NULL,
    icingID int NOT NULL,
-   PRIMARY KEY(cupcakeID, email),
-   CONSTRAINT FOREIGN KEY(email) REFERENCES users(email)
+   PRIMARY KEY(favoriteID),
+   UNIQUE KEY(cupcakeID, UserID),
+   CONSTRAINT FOREIGN KEY(UserID) REFERENCES users(UserID)
       on update cascade,
-   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES cupcakes(cupcakeID)
+   CONSTRAINT FOREIGN KEY(cupcakeID) REFERENCES flavor(flavorID)
       on update cascade,
    CONSTRAINT FOREIGN KEY(fillingID) REFERENCES filling(fillingID)
       on update cascade,
    CONSTRAINT FOREIGN KEY(icingID) REFERENCES icing(icingID)
+      on update cascade
+) engine = innodb;
+
+CREATE TABLE toppingBridge (
+   bridgeID int NOT NULL,
+   favoriteID int NOT NULL,
+   toppingID int NOT NULL,
+   PRIMARY KEY(bridgeID),
+   CONSTRAINT FOREIGN KEY(favoriteID) REFERENCES favorites(favoriteID)
+      on update cascade,
+   CONSTRAINT FOREIGN KEY(toppingID) REFERENCES topping(toppingID)
       on update cascade
 ) engine = innodb;
 
