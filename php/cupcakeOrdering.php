@@ -1,5 +1,5 @@
 <?php
-	
+
 ?>
 
 <?php
@@ -14,6 +14,8 @@
 			echo "<table>
 					<tbody>";
 			while($row = mysqli_fetch_assoc($result)) {
+
+				echo $row;
 
 				$pic = $row["picLoc"];
 				$flavor = $row["flavorName"];

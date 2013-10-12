@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	alert("loaded");
 
 	function loadPage () {
 		$.ajax({
