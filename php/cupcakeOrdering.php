@@ -34,11 +34,15 @@
 	$getFlavorID = "SELECT flavorID FROM flavor WHERE(flavorName = '$flavor');";
 	$getFillingID = "SELECT fillingID FROM filling WHERE (fillingName = '$filling');";
 	$getIcingID = "SELECT icingID FROM icing WHERE (icingName = '$icing');";
+	$uresult = mysqli_query($db,$getUserIDQuery);
+	$flavresult = mysqli_query($db,$getFlavorID);
+	$filresult = mysqli_query($db,$getFillingID);
+	$iceresult = mysqli_query($db,$getIcingID);
 
-	$flav = mysqli_fetch_array($getFlavorID);
-	$fil = mysqli_fetch_array($getFillingID);
-	$ic = mysqli_fetch_array($getIcingID);
-	$u = mysqli_fetch_array($getUserIDQuery);
+	$flav = mysqli_fetch_array($uresult);
+	$fil = mysqli_fetch_array($flavresult);
+	$ic = mysqli_fetch_array($filresult);
+	$u = mysqli_fetch_array($iceresult);
 
 	$uID = intval($u['userID']);
 	$iceID = intval($ic['icingID']);
@@ -46,7 +50,7 @@
 	$cakeID = intval($flav['flavorID']);
 
 	$insertAllQuery = "INSERT INTO purchases (purchaseID,quantity,cupcakeID,fillingID,icingID,userID)
-			 VALUES ('$id', '$quantity', '$cakeID', '$fillID', '$iceID', '$uID');";
+			 VALUES ('$id', '$quantity', '$cakeID', '$fillID', '$iceID', 1);";
 	mysqli_query($db,$insertAllQuery);
 
 	if (!mysqli_query($db,$insertAllQuery)) {
