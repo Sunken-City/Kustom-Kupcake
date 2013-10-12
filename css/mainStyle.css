@@ -82,6 +82,14 @@ h2{
     margin-left:auto;
 }
 
+#OptionsHolder {
+    width:900px;
+    position:relative;
+    margin:0px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 .td{
 	padding:3px
 }
@@ -133,7 +141,12 @@ img {
     background-color:#F3F781;
 }
 
-
+#checkAll{
+    float:right;
+}
+#uncheckAll{
+    float:left;
+}
 .graphs {
     
     width:400px;

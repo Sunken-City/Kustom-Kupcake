@@ -82,6 +82,10 @@ h2{
     margin-left:auto;
 }
 
+#OptionsHolder {
+    width:900px;
+}
+
 .td{
 	padding:3px
 }
@@ -128,12 +132,17 @@ img {
 #Favorites {
     float:left;
     width:100px;
-    height:800px;
+    height:650px;
     display:block;
     background-color:#F3F781;
 }
 
-
+#checkAll{
+    float:right;
+}
+#uncheckAll{
+    float:left;
+}
 .graphs {
     
     width:400px;
