@@ -12,7 +12,7 @@
     mysql_select_db("customcupcakes", $con) or die ("Could not connect: " . mysql_error());
     
     $counts = array();
-    for ($i = 0; $i < 9; $i++)
+    for ($i = 1; $i < 10; $i++)
     {
       $result = mysql_query("SELECT count(purchases.purchaseID) FROM (purchases NATURAL JOIN filling) WHERE (filling.fillingID = $i);");
       $counts[$i] = mysql_result($result, 0);
@@ -29,7 +29,7 @@
     mysql_select_db("customcupcakes", $con) or die ("Could not connect: " . mysql_error());
     
     $counts = array();
-    for ($i = 0; $i < 24; $i++)
+    for ($i = 1; $i < 25; $i++)
     {
       $result = mysql_query("SELECT count(purchases.purchaseID) FROM (purchases NATURAL JOIN icing) WHERE (icing.icingID = $i);");
       $counts[$i] = mysql_result($result, 0);
@@ -46,7 +46,7 @@
     mysql_select_db("customcupcakes", $con) or die ("Could not connect: " . mysql_error());
     
     $counts = array();
-    for ($i = 0; $i < 14; $i++)
+    for ($i = 1; $i < 15; $i++)
     {
       $result = mysql_query("SELECT count(purchases.purchaseID) FROM (purchases NATURAL JOIN flavor) WHERE (flavor.flavorID = $i);");
       $counts[$i] = mysql_result($result, 0);
