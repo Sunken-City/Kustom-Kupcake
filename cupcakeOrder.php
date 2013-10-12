@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+	<head>
+		<title>Custom Cupcakes</title>
+		<link rel="stylesheet" type="text/css" href="css/mainStyle.css">
+                <link rel="shortcut icon" href="artwork/cupcake_icon.ico" type="image/x-icon">
+    	<script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    	<script type ="text/javascript" src="js/cupcakeordering.js"></script>
+	</head>	
+
+	<body>
+			<table id="Favorites">
+				<caption> Favorites </caption>
+				<tbody>
+				</tbody>
+			</table>
+        
+	<div id="OptionsHolder">
+	<div>
+        		<nav id="Flavorholder" class="OptionTable">
+		<table id="Flavor" class="Tables">
+			<tbody>
+			<?php
+				$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
+
+				if (mysqli_connect_errno()) {
+					printf("Connect failed: %s\n", mysqli_connect_errno());
+					exit();
+				}
+
+				$result = mysqli_query($db,"SELECT * FROM flavor");
+
+				while($row = mysqli_fetch_assoc($result)) {
+
+					$pic = $row["picLoc"];
+					$flavor = $row["flavorName"];
+					//do something with the pic and flavor??//
+					echo "<td name=$flavor> <img src=\"http://54.200.82.84/Kustom-Kupcake/artwork/$pic\" alt=$flavor> $flavor </td>";
+
+				}
+
+			?>	
+			</tbody>
+		</table>
+                </nav>
+        </div>
+        <div id="Fillingholder"  class="OptionTable">
+        	<nav>
+		<table id="Filling" class="Tables">
+			<tbody>
+				<?php
+					$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
+					$result = mysqli_query($db,"SELECT * FROM filling");
+					echo "<br>";
+					echo "<table>
+						<tbody>";
+					while($row = mysqli_fetch_assoc($result)) {
+
+						$rgbVal = $row["rgbVal"];
+						$filling = $row["fillingName"];
+						//do something with the pic and filling??//
+						echo "
+				
+						<td name=$filling>
+						<td bgcolor=$rgbVal>
+							 $filling
+						</td>";
+
+				}echo "</tbody> </table>";
+				?>
+			</tbody>
+		</table>
+			</nav>
+		</div>
+
+		<div>
+			<nav id="Icingholder"  class="OptionTable">
+		<table id="Icing" class="Tables">
+			<tbody>
+				<td></td>
+			</tbody>
+		</table>
+			</nav>
+		</div>
+
+
+
+		
+		<div id="toppings"  class="OptionTable">
+			<span><input type="checkbox" name = "sprinkles" value="Sprinkles">Sprinkles</span>
+			<span><input type="checkbox" name = "bacon" value="Bacon">Bacon</span>
+			<span><input type="checkbox" name = "m&ms" value="M&Ms">M&Ms</span>
+			<span><input type="checkbox" name = "reeses" value="Reeses">Reeses Pieces</span>
+			<span><input type="checkbox" name = "skittles" value="Skittles">Skittles</span>
+			<span><input type="checkbox" name = "minichocolatechips" value="MiniChocolateChips">Mini Chocolate Chips</span>
+			<span><input type="checkbox" name = "oreo bits" value="Oreo Bits">Oreo Bits</span>
+			<span><input type="checkbox" name = "twix bits" value="Twix Bits">Twix Bits</span>
+			<span><input type="checkbox" name = "butterfinger bits" value="Butterfinger Bits">Butterfinger Bits</span>
+			<span><input type="checkbox" name = "snickers bits" value="Snicker Bits">Snicker Bits</span>
+			<span><input type="checkbox" name = "mini marshmellows" value="Mini Marshmellows">Mini Marshmellows</span>
+		</div>
+			<input type = "button" id="checkAll" name="CheckAll" value="All Toppings"
+			onClick="checkAll(document.all)">
+
+			<input type ="button" id="uncheckAll" name="UncheckAll" value = "Clear All Toppings"
+			onClick="uncheckAll (document.all)">
+			
+		
+		
+		<div id="cupcakeOptions">
+			<input type ="button" id = "resetCupcake" name="ResetCupcake" value="Reset Cupcake">
+			<div id="quantity">
+				<input id = "quantityCupcakes" type="number" min="0" max="99999"/>
+			</div>
+			<input type ="button" id="updateOrder" name="UpdateOrder" value ="Update Order"
+			onClick = "updateOrder()">
+		</div>
+		
+		<div>
+			<input type="submit" id="submitOrder" name="analyticsSubmit" value = "Submit Order">
+		</div>
+   		<div>
+			<input type="submit" id="addFavs" name="addToFavorites" value = "Add to Favorites">
+		</div>
+	</div>
+		
+		<div id="shoppingCart">
+			<input type="button" id="deleteRow" name="deleteRow" value = "Delete Selected Rows">
+			<table id="cupcakeCart">
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
