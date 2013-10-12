@@ -1,9 +1,8 @@
-<html>
-	<head>
-		<title> Cupcake Ordering </title>
-	</head>
-	<body>
-		<?php
+<?php
+	
+?>
+
+<?php
 			$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
 
 			if (mysqli_connect_errno()) {
@@ -76,5 +75,3 @@
 
 				}echo "</tbody> </table>";
 		?>
-	<body>
-</html>

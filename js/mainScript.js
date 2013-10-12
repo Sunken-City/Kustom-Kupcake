@@ -24,95 +24,20 @@ $(document).ready(function() {
 		var password = $("#password").val();
 		var pwdPattern = /.{8,}/g;
 
-
-		// if( !password.match(pwdPattern) ) {
-		// 	alert("Password is Invalid");
-		// }
-
-		//var formData = $("#logIn").serialize();
 		var formData = {pass: password, user: username};
-		//var x = JSON.stringify(formData);
-
-		//var formData = form.serialize();
-		//alert(formData);
 
 		$.post("php/logIn.php",formData,function(data){
-			//alert(data['success']);
+
 			if(data['success']) {
-				//e.preventDefault();
             	// do successful things
             	window.location.href = "php/redirect2.php";
         	}
         	else {
             	// do failure things
-            	//e.preventDefault();
             	alert("Username or Password is Invalid!");
         	}
 		},"json");
 
-		// $.post("php/logIn.php",formData,function(data,status,xhr) {
-		// 	//window.location.href = "php/redirect.php";
-		// 	alert(data['success']);
-			// if(data['success']) {
-			// 	//e.preventDefault();
-   //          	// do successful things
-   //          	window.location.href = "php/redirect.php";
-   //      	}
-   //      	else {
-   //          	// do failure things
-   //          	//e.preventDefault();
-   //          	alert(data['success']);
-   //      	}
-		// });
-
-		// $.ajax({
-		// 	url:"php/logIn.php",
-		// 	type: "POST";
-		// 	dataType: "json";
-		// 	data: formData;
-		// 	success: function(data,status,xhr) {
-		// 		if(data['success']) {
-		// 			//e.preventDefault();
-	 //            	// do successful things
-	 //            	window.location.href = "php/redirect.php";
-	 //        	}
-	 //        	else {
-	 //            	// do failure things
-	 //            	//e.preventDefault();
-	 //            	alert(data['success']);
-	 //        	}
-		// 	}
-		// })
-		// .fail(function() {
-		//     alert( "error" );
-		// });
-		// .done(function() {
-  //   		//alert( "second success" );
-  // 		})
-  // 		.fail(function() {
-  // 			e.preventDefault();
-  //   		alert( "Password or Username Invalid!" );
-  // 		})
-  // 		.always(function() {
-  //   		//alert( "finished" );
-		// });
-
-		// $.ajax({
-		// 	type: "POST",
-		// 	url: "php/logIn.php",
-		// 	data: formData,
-		// 	success: function () {
-		// 		success = true;
-		// 		//$.ajax({ url:"php/redirect.php"});
-		// 		e.preventDefault();
-		// 	},
-		// 	failure: function() {
-		// 		alert("Password or Username Invalid!");
-		// 		e.preventDefault();
-		// 	}
-		// });
-
-		//action="php/redirect.php"
 		e.preventDefault();
 
 	});
@@ -150,44 +75,3 @@ function validateTely(){
 
 	return validated;
 }
-
-	// var authenticate = new XMLHttpRequest();
-
-	// authenticate.open("POST","php/logIn.php",true);
-	// authenticate.send();
-
-	// authenticate.onreadystatechange = function () {
-
-	// }
-
-
-	// $("#logIn").click(function(e) {
-	// 	//add submit listener to log in button
-	// 	$('#message').slideUp('fast');
-
-	// 	$.post('php/logIn.php',$("#logIn").serialize()+'&action=
-	// 		'+ $(event.target).attr('id'),function(data) {
-
-	// 		var code = $(data)[0].nodeName.toLowerCase();
-
-	//     	$('#message').removeClass('error');
-	//       	$('#message').removeClass('success');
-	//       	$('#message').addClass(code);
-	//       	if(code == 'success') {
-
-	//       		//redirect
-	//       		$.ajax({ url: 'php/redirect.php' });
-	        
-	//       	}
-	//       	else if(code == 'error') {
-	//       		$.ajax({ url: 'php/redirect.php' });
-	//         	//$('#message').html('An error occurred, please try again.');
-	//         	//$('#message').slideDown('fast');
-	//       	}
-
-	// 	});
-
-	// 	return e.preventDefault();
-
-	// });
-	//$.ajax({ url: 'php/redirect.php' });
