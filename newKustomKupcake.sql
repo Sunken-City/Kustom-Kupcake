@@ -96,7 +96,7 @@ CREATE TABLE toppingBridge (
    toppingID int NOT NULL,
    purchaseID int NOT NULL,
    PRIMARY KEY(bridgeID),
-   CONSTRAINT FOREIGN KEY(purchaseID) REFERENCES pruchases(purchaseID)
+   CONSTRAINT FOREIGN KEY(purchaseID) REFERENCES purchases(purchaseID)
       on update cascade,
    CONSTRAINT FOREIGN KEY(favoriteID) REFERENCES favorites(favoriteID)
       on update cascade,
