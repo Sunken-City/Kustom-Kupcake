@@ -219,21 +219,32 @@ $(document).ready(function() {
 	$("#submitOrder").click(function(e) {
 		//ajax call to the database with all the analytics
 
-		for (var i = 0; len = shoppingCart.lenght; i < len; i++) {
+		for (var i = 0, len = shoppingCart.length; i < len; i++) {
 
-			$formData = shoppingCart[i];
+			var fjcruiser = shoppingCart[i];
+			var quantitys = fjcruiser['quantity'];
+			var flavors = fjcruiser['flavor'];
+			var fillings = fjcruiser['filling'];
+			var icings = fjcruiser['icing'];
 
-			$.post("php/API.php",formData,function(data){
+			var formData = {quantity:quantitys,flavor:flavors,filling:fillings,icing:icings};
 
-				if(data['success']) {
-	            	// do successful things
-	            	window.location.href = "php/redirect2.php";
-	        	}
-	        	else {
-	            	// do failure things
-	            	alert("Username or Password is Invalid!");
-	        	}
+			alert('');
+
+			//document.write($formData['flavor']);
+
+			$.post("php/cupcakeOrdering.php",formData,function(){
+
+				alert("Success!");
 			},"json");
+			// $.ajax({
+			// 	type:"POST",
+			// 	url:"php/cupcakeOrdering.php",
+			// 	data: $formData,
+			// 	success: function () {
+			// 		alert("Success!");
+			// 	}
+			// });
 		}
 	});
 

@@ -92,54 +92,54 @@
 		return $submitted;
 	}
 
-	function populateFlavorTable()
-	{
-			$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
+	// function populateFlavorTable()
+	// {
+	// 		$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
 
-			if (mysqli_connect_errno()) {
-				printf("Connect failed: %s\n", mysqli_connect_errno());
-				exit();
-			}
+	// 		if (mysqli_connect_errno()) {
+	// 			printf("Connect failed: %s\n", mysqli_connect_errno());
+	// 			exit();
+	// 		}
 
-			$result = mysqli_query($db,"SELECT * FROM flavor");
+	// 		$result = mysqli_query($db,"SELECT * FROM flavor");
 
-			while($row = mysqli_fetch_assoc($result)) {
-
-
-				//do something with the pic and flavor??//
-				}
+	// 		while($row = mysqli_fetch_assoc($result)) {
 
 
+	// 			//do something with the pic and flavor??//
+	// 			}
 
-	}
 
-	function populateFillingTable()
-	{
-		$result = mysqli_query($db,"SELECT * FROM filling");
-			while($row = mysqli_fetch_assoc($result)) {
 
-				$rgbVal = $row["rgbVal"];
-				$filling = $row["fillingName"];
-				//do something with the pic and filling??//
-				}
-	}
+	// }
 
-	function populateIcingTable()
-	{
-		$result = mysqli_query($db,"SELECT * FROM icing");
-			while($row = mysqli_fetch_assoc($result)){
-				$pic = $row["picLoc"];
-				$icing = $row["icingName"];
-				//do something with the pic and filling??//
-				}
+	// function populateFillingTable()
+	// {
+	// 	$result = mysqli_query($db,"SELECT * FROM filling");
+	// 		while($row = mysqli_fetch_assoc($result)) {
+
+	// 			$rgbVal = $row["rgbVal"];
+	// 			$filling = $row["fillingName"];
+	// 			//do something with the pic and filling??//
+	// 			}
+	// }
+
+	// function populateIcingTable()
+	// {
+	// 	$result = mysqli_query($db,"SELECT * FROM icing");
+	// 		while($row = mysqli_fetch_assoc($result)){
+	// 			$pic = $row["picLoc"];
+	// 			$icing = $row["icingName"];
+	// 			//do something with the pic and filling??//
+	// 			}
 				
-	}
+	// }
 
-	function populateToppingTable(){
+	// function populateToppingTable(){
 		
-	}
+	// }
 	
-	function submitToDB($formData) {
+	function submitToDB2($formData) {
 
 		$submitted = true; /*Will change when I get a real database to work with*/
 		$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
@@ -168,13 +168,12 @@
 		
 		$id = $id + 1;
 		$quantity = $formData['quantity'];
-		$cupcakeID = $formData['cupcakeID'];
-		$fillingID = $formData['fillingID'];
-		$icingID = $formData['icingID'];
-		$userID = $formData['userID'];
+		$cupcakeID = $formData['flavor'];
+		$fillingID = $formData['filling'];
+		$icingID = $formData['icing'];
 
-		$insertAllQuery = "INSERT INTO purchases (purchaseID,quantity,cupcakeID,fillingID,icingID,userID)
-			 VALUES ('$id', '$quantity', '$cupcakeID', '$fillingID', '$icingID', '$userID')";
+		$insertAllQuery = "INSERT INTO purchases (purchaseID,quantity,cupcakeID,fillingID,icingID)
+			 VALUES ('$id', '$quantity', '$cupcakeID', '$fillingID', '$icingID')";
 
 		if (!mysqli_query($db,$insertAllQuery)) {
 			echo "There was an error processing your request. Please return to the previous page. Here's the error if you wanted to know:\n";
