@@ -185,14 +185,8 @@
 		$icingID = $formData['icingID'];
 		$userID = $formData['userID'];
 
-
-		if ($formData['join'] === 'yes') {
-			$onMailingList = "yes";
-		}
-
-		$insertAllQuery = "INSERT INTO users (UserID,onMailingList,employee,givenName,surname,streetAddress,city,state,zipCode,email,password,telephone)
-			 VALUES ( '$id', '$onMailingList', '$employee', '$givenName', '$surname', '$streetAddress', '$city', '$state', '$zipCode', '$email', '$password', '$telephone')";
-		//mysqli_query($db,$insertAllQuery);
+		$insertAllQuery = "INSERT INTO purchases (purchaseID,quantity,cupcakeID,fillingID,icingID,userID)
+			 VALUES ('$id', '$quantity', '$cupcakeID', '$fillingID', '$icingID', '$userID')";
 
 		if (!mysqli_query($db,$insertAllQuery)) {
 			echo "There was an error processing your request. Please return to the previous page. Here's the error if you wanted to know:\n";
