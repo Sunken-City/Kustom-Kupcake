@@ -64,7 +64,7 @@
 			if ($submission) {
 				# Redirect to
 				session_start();
-				$_SESSION['uname'] = $name;	
+				$_SESSION['uname'] = $formData['Email'];	
 	    		include 'redirect.php';
 
 			} else {

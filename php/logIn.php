@@ -42,6 +42,11 @@
 
 			mysql_close($con);
 
+			if ($authenticated) {
+				session_start();
+				$_SESSION['uname'] = $user;
+			}
+
 			$postData = array('success' => $authenticated);
 
 			//header("js/mainScript.js");

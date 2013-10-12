@@ -1,7 +1,7 @@
 <?php
 	include 'API.php';
 
-	$quantity = $_POST['quantity'];
+	$quantity = intval($_POST['quantity']);
 	$flavor = $_POST['flavor'];
 	$filling = $_POST['filling'];
 	$icing = $_POST['icing'];
@@ -28,8 +28,25 @@
 	
 	$id = $id + 1;
 
+	$email = $_SESSION['uname'];
+
+	$getUserIDQuery = "SELECT userID FROM users WHERE(email = '$email')"; 
+	$getFlavorID = "SELECT flavorID FROM flavor WHERE(flavorName = '$flavor')";
+	$getFillingID = "SELECT fillingID FROM filling WHERE (fillingName = '$filling')";
+	$getIcingID = "SELECT icingID FROM icing WHERE (icingName = '$icing')";
+
+	$rgrow = mysqli_fetch_array($getFlavorID);
+	$hgrow = mysqli_fetch_array($getFillingID);
+	$ugrow = mysqli_fetch_array($getIcingID);
+	$grow = mysqli_fetch_array($getUserIDQuery);
+
+	$uID = intval($grow['userID']);
+	$iceID = intval($ugrow['icingID']);
+	$fillID = intval($hgrow['fillingID']);
+	$cakeID = intval($rgrow['flavorID']);
+
 	$insertAllQuery = "INSERT INTO purchases (purchaseID,quantity,cupcakeID,fillingID,icingID,userID)
-			 VALUES (123, 1, 1, 1, 1,1)";
+			 VALUES ('$id', '$quantity', '$cakeID', '$fillID', '$iceID', '$uID')";
 	mysqli_query($db,$insertAllQuery);
 
 	if (!mysqli_query($db,$insertAllQuery)) {
