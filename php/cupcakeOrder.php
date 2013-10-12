@@ -36,7 +36,7 @@
 					$pic = $row["picLoc"];
 					$flavor = $row["flavorName"];
 					//do something with the pic and flavor??//
-					echo "<td name=$flavor> <img src=\"http://54.200.82.84/Kustom-Kupcake/artwork/$pic\" alt=$flavor name = $flavor> $flavor </td>";
+					echo "<td name=$flavor> <img src=\"http://54.200.82.84/Kustom-Kupcake/artwork/$pic\" alt=$flavor> $flavor </td>";
 
 				}
 
@@ -63,7 +63,8 @@
 						//do something with the pic and filling??//
 						echo "
 				
-						<td name=$filling bgcolor=$rgbVal>
+						<td name=$filling>
+						<td bgcolor=$rgbVal>
 							 $filling
 						</td>";
 
@@ -78,7 +79,7 @@
 			<nav id="Icingholder"  class="OptionTable">
 		<table id="Icing" class="Tables">
 			<tbody>
-			<?php
+				<?php
 			$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
 			if (mysqli_connect_errno()) {
 					printf("Connect failed: %s\n", mysqli_connect_errno());
@@ -92,7 +93,7 @@
 				echo "
 				
 					<td name=$icing>
-					<img src=\"http://54.200.82.84/Kustom-Kupcake/artwork/$pic\" alt=$icing name=$icing> $icing
+					<img src=\"http://54.200.82.84/Kustom-Kupcake/artwork/$pic\" alt=$icing> $icing
 					</td>";
 
 				}
@@ -106,24 +107,17 @@
 
 		
 		<div id="toppings"  class="OptionTable">
-			<?php
-			$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
-			if (mysqli_connect_errno()) {
-					printf("Connect failed: %s\n", mysqli_connect_errno());
-					exit();
-				}
-
-			$result = mysqli_query($db,"SELECT * FROM topping");
-			
-			while($row = mysqli_fetch_assoc($result)){
-				$name = $row["toppingName"];
-				//do something with the pic and filling??//
-				echo "
-				    <input type=\"checkbox\" name = $name value=$name>$name
-				";
-
-				}
-				?>
+			<span><input type="checkbox" name = "sprinkles" value="Sprinkles">Sprinkles</span>
+			<span><input type="checkbox" name = "bacon" value="Bacon">Bacon</span>
+			<span><input type="checkbox" name = "m&ms" value="M&Ms">M&Ms</span>
+			<span><input type="checkbox" name = "reeses" value="Reeses">Reeses Pieces</span>
+			<span><input type="checkbox" name = "skittles" value="Skittles">Skittles</span>
+			<span><input type="checkbox" name = "minichocolatechips" value="MiniChocolateChips">Mini Chocolate Chips</span>
+			<span><input type="checkbox" name = "oreo bits" value="Oreo Bits">Oreo Bits</span>
+			<span><input type="checkbox" name = "twix bits" value="Twix Bits">Twix Bits</span>
+			<span><input type="checkbox" name = "butterfinger bits" value="Butterfinger Bits">Butterfinger Bits</span>
+			<span><input type="checkbox" name = "snickers bits" value="Snicker Bits">Snicker Bits</span>
+			<span><input type="checkbox" name = "mini marshmellows" value="Mini Marshmellows">Mini Marshmellows</span>
 		</div>
 			<input type = "button" id="checkAll" name="CheckAll" value="All Toppings"
 			onClick="checkAll(document.all)">
