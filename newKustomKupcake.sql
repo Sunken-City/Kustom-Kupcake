@@ -103,9 +103,4 @@ CREATE TABLE toppingBridge (
       on update cascade
 ) engine = innodb;
 
-#load data local infile '/home/joe/Kustom-Kupcake/data/CustomCupcakesDBData-Users.csv' into table users fields terminated by ',' optionally enclosed by '"' lines terminated by '\n' (UserID, onMailingList, givenName, surname, streetAddress, city, state, zipCode, email, password, telephone);
-
-#load data local infile '/home/joe/Kustom-Kupcake/data/CustomCupcakesDBData-ToppingsBridge.csv' into #table toppingBridge fields terminated by ',' lines terminated by '\n' (bridgeID, cupcakeID, #toppingID);
-
-
 
