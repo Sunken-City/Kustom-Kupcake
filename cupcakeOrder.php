@@ -13,6 +13,45 @@
 			<table id="Favorites">
 				<caption> Favorites </caption>
 				<tbody>
+					<?php
+						$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
+
+						if (mysqli_connect_errno()) {
+						printf("Connect failed: %s\n", mysqli_connect_errno());
+						exit();
+
+						$user = $_SESSION['uname'];
+						$result = mysqli_query($db,"SELECT * FROM favorites WHERE(userID = '$user');");
+
+					while($row = mysqli_fetch_assoc($result)) {
+
+					$cupcakeName = $row["cupcakeName"];
+
+					$flavorId = $row["cupcakeID"];
+					$flavor = mysqli_query($db,"SELECT flavorName FROM flavor WHERE(flavorID = '$flavorId');");
+
+					$fillingId = $row["fillingID"];
+					$filling = mysqli_query($db,"SELECT fillingName FROM filling WHERE(fillingID = '$fillingId');");
+
+					$icingId = $row["icingID"];
+					$icing = mysqli_query($db,"SELECT icingName FROM icing WHERE(icingID = '$icingId');");
+
+					$toppingId = $row["favoriteID"];
+					$topping = mysqli_query($db,"SELECT toppingName FROM toppingBridge,topping WHERE(toppingBridge.favoriteID = '$toppingId');");
+
+					//do something with the pic and flavor??//
+					echo "<tr>"
+					echo "<td name=$cupcakeName> $cupcakeName"
+					echo "<td name=$flavor> $flavor </td>";
+					echo "<td name=$filling> $filling </td>";
+					echo "<td name=$icing> $icing </td>";
+					echo "<td name=$topping> $topping </td>";
+					echo "</tr>";
+					}
+
+
+				}
+					?>
 				</tbody>
 			</table>
         
