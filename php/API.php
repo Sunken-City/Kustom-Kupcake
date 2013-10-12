@@ -160,23 +160,11 @@
 
 		$frow = mysqli_fetch_array($getMaxID);
 
-		if ($frow['max(UserID)'] == null) {
-			$frow['max(UserID)'] = 0;
+		if ($frow['max(purchases.purchaseID)'] == null) {
+			$frow['max(purchases.purchaseID)'] = 0;
 		}
 
-		$id = intval($frow['max(UserID)']);
-
-		#	$formData format: 		::		database columns:	
-		#	[0] = join 				::	UserID				password
-		#	[1] = fname 			::	onMailingList		telephone
-		#	[2] = lname 			::	employee
-		#	[3] = Email 			::	givenName
-		#	[4] = newpwd 			::	surname
-		#	[5] = phone 			::	streetAddress
-		#	[6] = Address 		 	::	city
-		#	[7] = City 				::	state
-		#	[8] = states 			::	zipCode
-		#	[9] = zip 				::	email
+		$id = intval($frow['max(purchases.purchaseID)']);
 		
 		$id = $id + 1;
 		$quantity = $formData['quantity'];
