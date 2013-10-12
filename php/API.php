@@ -138,4 +138,69 @@
 	function populateToppingTable(){
 		
 	}
+	
+	function submitToDB($formData) {
+
+		$submitted = true; /*Will change when I get a real database to work with*/
+		$db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
+
+		if (mysqli_connect_errno()) {
+			printf("Connect failed: %s\n", mysqli_connect_errno());
+			exit();
+		}
+
+		###############################################
+		#Begin the function for checking out          #
+		###############################################
+
+		#first must get the highest current purchaseID and add 1 to it to make the new purchaseID
+		
+		$getMaxIDQuery = "SELECT max(purchases.purchaseID) FROM purchases";
+		$getMaxID = mysqli_query($db,$getMaxIDQuery);
+
+		$frow = mysqli_fetch_array($getMaxID);
+
+		if ($frow['max(UserID)'] == null) {
+			$frow['max(UserID)'] = 0;
+		}
+
+		$id = intval($frow['max(UserID)']);
+
+		#	$formData format: 		::		database columns:	
+		#	[0] = join 				::	UserID				password
+		#	[1] = fname 			::	onMailingList		telephone
+		#	[2] = lname 			::	employee
+		#	[3] = Email 			::	givenName
+		#	[4] = newpwd 			::	surname
+		#	[5] = phone 			::	streetAddress
+		#	[6] = Address 		 	::	city
+		#	[7] = City 				::	state
+		#	[8] = states 			::	zipCode
+		#	[9] = zip 				::	email
+		
+		$id = $id + 1;
+		$quantity = $formData['quantity'];
+		$cupcakeID = $formData['cupcakeID'];
+		$fillingID = $formData['fillingID'];
+		$icingID = $formData['icingID'];
+		$userID = $formData['userID'];
+
+
+		if ($formData['join'] === 'yes') {
+			$onMailingList = "yes";
+		}
+
+		$insertAllQuery = "INSERT INTO users (UserID,onMailingList,employee,givenName,surname,streetAddress,city,state,zipCode,email,password,telephone)
+			 VALUES ( '$id', '$onMailingList', '$employee', '$givenName', '$surname', '$streetAddress', '$city', '$state', '$zipCode', '$email', '$password', '$telephone')";
+		//mysqli_query($db,$insertAllQuery);
+
+		if (!mysqli_query($db,$insertAllQuery)) {
+			echo "There was an error processing your request. Please return to the previous page. Here's the error if you wanted to know:\n";
+			die('Error: ' . mysqli_error($db));
+		}
+
+		mysqli_close($db);
+
+		return $submitted;
+	}
 ?>
