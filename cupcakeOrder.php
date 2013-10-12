@@ -19,9 +19,10 @@
 						if (mysqli_connect_errno()) {
 						printf("Connect failed: %s\n", mysqli_connect_errno());
 						exit();
+					}
 
-						$user = $_SESSION['uname'];
-						$result = mysqli_query($db,"SELECT * FROM favorites WHERE(userID = '$user');");
+					$user = $_SESSION['uname'];
+					$result = mysqli_query($db,"SELECT * FROM favorites WHERE(userID = '$user');");
 
 					while($row = mysqli_fetch_assoc($result)) {
 
@@ -50,8 +51,8 @@
 					}
 
 
-				}
 					?>
+					
 				</tbody>
 			</table>
         
