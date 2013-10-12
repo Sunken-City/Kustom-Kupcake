@@ -3,24 +3,22 @@ importDataToDB();
 function importDataToDB()
 {
   echo("<html><body>");
-  $con = mysql_connect("localhost", "cupcaker", "nomnomnom") or die ("Could not connect: " . mysql_error());
-  mysql_select_db("customcupcakes", $con) or die ("Could not connect: " . mysql_error());
+  $db = mysqli_connect("localhost","cupcaker","nomnomnom","customcupcakes");
+
+	if (mysqli_connect_errno()) {
+		printf("Connect failed: %s\n", mysqli_connect_errno());
+		exit();
+	}
    
-  $sql = "LOAD DATA LOCAL INFILE '/var/www/Kustom-Kupcake/data/CustomCupcakesDBData-Users.csv'
-        INTO TABLE users
-        FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"'
-        LINES TERMINATED BY '\n'
-        IGNORE 1 LINES
-        (UserID, onMailingList, givenName, surname, streetAddress, city, state, zipCode, email, password, telephone);
-        ";
+  mysqli_query("SOURCE /var/www/Kustom-Kupcake/data/populate.sql");
+        
+  echo "echo";
+		if (!mysqli_query($db,$sql)) {
+			echo "There was an error processing your request. Please return to the previous page. Here's the error if you wanted to know:\n";
+			die('Error: ' . mysqli_error($db));
+		}
   
-  mysql_query($sql);
-   
-  mysql_query("load data local infile '/var/www/Kustom-Kupcake/data/CustomCupcakesDBData-FavoriteCupcakes.csv' into table favorites fields terminated by ',' lines terminated by '\n' ignore 1 lines (FavoriteID, UserID, flavorID, icingID, fillingID)");
-  
-  mysql_query("load data local infile '/var/www/Kustom-Kupcake/data/CustomCupcakesDBData-ToppingsBridge.csv' into table toppingBridge fields terminated by ',' lines terminated by '\n' ignore 1 lines (bridgeID, cupcakeID, toppingID);");
-  
-  mysql_close($con);
+  mysqli_close($db);
   /*include 'simplexlsx.class.php';
   $xlsx = new SimpleXLSX('http://54.200.82.84/Kustom-Kupcake/data/CustomCupcakesDBData-FavoriteCupcakes.xlsx');
   echo( $xlsx->rows() );*/
