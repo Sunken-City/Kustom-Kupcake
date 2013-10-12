@@ -229,14 +229,12 @@ $(document).ready(function() {
 
 			var formData = {quantity:quantitys,flavor:flavors,filling:fillings,icing:icings};
 
-			alert('');
-
 			//document.write($formData['flavor']);
 
 			$.post("php/cupcakeOrdering.php",formData,function(){
 
 				alert("Success!");
-			},"json");
+			});
 			// $.ajax({
 			// 	type:"POST",
 			// 	url:"php/cupcakeOrdering.php",
