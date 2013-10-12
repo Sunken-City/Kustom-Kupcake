@@ -29,7 +29,7 @@
 	$id = $id + 1;
 
 	$insertAllQuery = "INSERT INTO purchases (purchaseID,quantity,cupcakeID,fillingID,icingID,userID)
-			 VALUES ('123', '1', '1', '1', '1','121')";
+			 VALUES (123, 1, 1, 1, 1,123)";
 	mysqli_query($db,$insertAllQuery);
 
 	if (!mysqli_query($db,$insertAllQuery)) {
